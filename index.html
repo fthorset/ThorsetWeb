@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>ThorsWeb – Profesjonelle nettsider for norske småbedrifter</title>
+  <meta name="description" content="ThorsWeb hjelper norske småbedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag. Vedlikehold og hosting 500 kr/mnd. Betjener hele Norge.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="#">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ThorsWeb – Profesjonelle nettsider for norske småbedrifter">
+  <meta property="og:description" content="ThorsWeb hjelper norske småbedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag. Vedlikehold og hosting 500 kr/mnd.">
+  <meta property="og:url" content="#">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:site_name" content="ThorsWeb">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ThorsWeb – Profesjonelle nettsider for norske småbedrifter">
+  <meta name="twitter:description" content="ThorsWeb hjelper norske småbedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag. Vedlikehold og hosting 500 kr/mnd.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics (erstatt G-XXXXXXXXXX med Measurement ID) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+
+  <!-- Structured Data: ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ThorsWeb",
+    "description": "ThorsWeb bygger konverteringsvennlige nettsider for norske småbedrifter. Webutvikler i Trondheim – nettside fra 4 000 kr, levering på 1 dag.",
+    "url": "#",
+    "telephone": "+4790414225",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trondheim",
+      "postalCode": "7030",
+      "addressCountry": "NO"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "kr kr",
+    "image": "https://picsum.photos/seed/thorsweb/1200/630",
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0A0A0F;
+      --dark:         #0E0E16;
+      --surface:      #14141F;
+      --card:         #181825;
+      --card-hover:   #1E1E2E;
+      --border:       #1E1E2E;
+      --accent:       #4F8EF7;
+      --accent-light: #7EB3FF;
+      --accent-dim:   #1E3A6E;
+      --white:        #F0F0FA;
+      --text:         #C8C8D8;
+      --text-muted:   #7878A8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Subtle noise overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.018;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 6rem 0; }
+
+    /* Ornament divider */
+    .orn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+    .orn::before, .orn::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .orn-d {
+      width: 7px; height: 7px;
+      background: var(--accent-dim);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* Fade-in animations */
+    .fi {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fi.in { opacity: 1; transform: none; }
+    .fi-d1 { transition-delay: 0.1s; }
+    .fi-d2 { transition-delay: 0.2s; }
+    .fi-d3 { transition-delay: 0.3s; }
+    .fi-d4 { transition-delay: 0.4s; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2.1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .btn-accent {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn-accent:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(79,142,247,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.6rem 0;
+      transition: background 0.4s, padding 0.4s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(10,10,15,0.94);
+      backdrop-filter: blur(14px);
+      padding: 1rem 0;
+      border-color: var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 2.5rem;
+    }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    .nav-cta { display: none; }
+    @media (min-width: 900px) { .nav-cta { display: inline-flex; } }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    @media (min-width: 900px) { .hamburger { display: none; } }
+    .hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--white);
+      transition: all 0.3s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ===== MOBILMENY ===== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 998;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 50%;
+      opacity: 0.035;
+      pointer-events: none;
+      background-image:
+        linear-gradient(var(--accent) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 9rem 0 5rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 1rem;
+      border: 1px solid rgba(79,142,247,0.25);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .hero-badge .dot {
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 700;
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 0.15em;
+      letter-spacing: -0.03em;
+    }
+    .hero-title .accent-blue {
+      color: var(--accent);
+      display: block;
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: var(--text);
+      max-width: 520px;
+      margin: 1.8rem 0 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-top: 0.3rem;
+    }
+
+    /* ===== OM MEG ===== */
+    #about { background: var(--dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      filter: saturate(0.75);
+      transition: filter 0.4s;
+    }
+    .about-img:hover { filter: saturate(1); }
+    .about-text p { margin-bottom: 1.25rem; color: var(--text); }
+
+    /* ===== HVORFOR ===== */
+    #why { background: var(--bg); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .why-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-4px);
+    }
+    .why-icon {
+      width: 48px; height: 48px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
+    .why-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ===== PAKKER ===== */
+    #services { background: var(--dark); }
+    .pkg-grid {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    .pkg-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+      width: 100%;
+      max-width: 480px;
+    }
+    .pkg-card:hover { transform: translateY(-4px); }
+    .pkg-card.featured {
+      border-color: var(--accent);
+      background: var(--card);
+    }
+    .pkg-badge {
+      position: absolute;
+      top: -1px; right: 2rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+    }
+    .pkg-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 1rem;
+    }
+    .pkg-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .pkg-price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .pkg-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 1.25rem 0;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pkg-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pkg-features li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 0.45rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .pkg-features li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+    .pkg-cta { display: block; text-align: center; }
+    .pkg-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== PORTFOLIO ===== */
+    #gallery { background: var(--bg); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .portfolio-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .portfolio-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-4px);
+    }
+    .portfolio-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      filter: saturate(0.65);
+      transition: filter 0.4s, transform 0.5s;
+      display: block;
+    }
+    .portfolio-card:hover .portfolio-img {
+      filter: saturate(1);
+      transform: scale(1.04);
+    }
+    .portfolio-info { padding: 1.5rem; }
+    .portfolio-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-info h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-info p { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ===== ANMELDELSER ===== */
+    #reviews { background: var(--dark); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+    .review-stars {
+      color: var(--accent);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .review-author {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .review-company { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ===== FAQ ===== */
+    #faq { background: var(--bg); }
+    .faq-list { margin-top: 3rem; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .faq-icon {
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--accent);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .faq-icon::before { width: 14px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .faq-icon::after  { width: 1.5px; height: 14px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .faq-q.active .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-a-inner {
+      padding-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ===== KONTAKT ===== */
+    #contact { background: var(--dark); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    @media (min-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr 1.2fr; }
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      width: 38px; height: 38px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 16px; height: 16px; color: var(--accent); }
+    .contact-info-item h4 {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+    .contact-info-item a, .contact-info-item p {
+      font-size: 0.92rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info-item a:hover { color: var(--accent); }
+    .contact-info-item a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* Form */
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group input:focus-visible,
+    .form-group select:focus-visible,
+    .form-group textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .form-group input.err,
+    .form-group select.err,
+    .form-group textarea.err { border-color: #e05050; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--card); }
+    .err-msg { display: none; font-size: 0.75rem; color: #e05050; margin-top: 0.3rem; }
+    .err-msg.show { display: block; }
+    #fSuccess {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--accent-dim);
+    }
+    #fSuccess svg { width: 48px; height: 48px; color: var(--accent); margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto; }
+    #fSuccess h3 { color: var(--white); margin-bottom: 0.5rem; }
+    #fSuccess p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ===== WHATSAPP FAB ===== */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 900;
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+    }
+    .whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    }
+    .whatsapp-fab:focus-visible { outline: 2px solid #25D366; outline-offset: 4px; }
+    .whatsapp-fab svg { width: 30px; height: 30px; }
+
+    /* ===== COOKIE BANNER ===== */
+    #cookie-banner {
+      display: none;
+      position: fixed;
+      bottom: 1.5rem; left: 1.5rem;
+      z-index: 950;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      max-width: 420px;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    #cookie-banner p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+    #cookie-banner a { color: var(--accent); text-decoration: underline; }
+    #cookie-accept {
+      align-self: flex-start;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 0.55rem 1.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #cookie-accept:hover { background: var(--accent-light); }
+    #cookie-accept:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+    }
+    .footer-brand-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-brand-name span { color: var(--accent); }
+    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem; }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      gap: 0.5rem;
+    }
+    .footer-col ul li:last-child { border-bottom: none; }
+    .footer-col ul li span { color: var(--text-muted); white-space: nowrap; }
+    .footer-col ul li a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .hero-stats { gap: 2rem; }
+      .pkg-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav role="navigation" aria-label="Hovednavigasjon" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Thors<span>Web</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">Om meg</a></li>
+        <li><a href="#services">Pakker</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-accent nav-cta">Få tilbud</a>
+      <button class="hamburger" id="hbg" aria-label="Åpne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== MOBILMENY ===== -->
+<div class="mobile-menu" id="mob" role="dialog" aria-label="Navigasjonsmeny" aria-modal="true">
+  <a href="#about">Om meg</a>
+  <a href="#services">Pakker</a>
+  <a href="#contact">Kontakt</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero" aria-label="Velkomstseksjon">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title fi">
+        Gi bedriften din
+        <span class="accent-blue">et nettbilde som holder.</span>
+      </h1>
+      <p class="hero-sub fi fi-d1">
+        Jeg hjelper norske småbedrifter med å etablere seg på nett –
+        enkelt, raskt og til en pris som gir mening.
+      </p>
+      <div class="hero-btns fi fi-d2">
+        <a href="#contact" class="btn btn-accent">Få tilbud</a>
+        <a href="#services" class="btn btn-outline">Se pakker</a>
+      </div>
+      <div class="hero-stats fi fi-d3" aria-label="Nøkkeltall">
+        <div>
+          <div class="stat-num">4 000 kr</div>
+          <div class="stat-label">Fra pris</div>
+        </div>
+        <div>
+          <div class="stat-num">1 dag</div>
+          <div class="stat-label">Express levering</div>
+        </div>
+        <div>
+          <div class="stat-num">Fast pris</div>
+          <div class="stat-label">Ingen overraskelser</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OM MEG ===== -->
+<section id="about" aria-label="Om meg">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fi">
+        <span class="label">Om meg</span>
+        <h2 class="section-title">Lokal webutvikler<br>med teknisk tyngde</h2>
+        <div class="orn"><div class="orn-d"></div></div>
+        <p>
+          Jeg er Fredrik – webutvikler basert i Trondheim og student i datateknologi ved NTNU.
+          Jeg spesialiserer meg på å bygge konverteringsvennlige nettsider for norske småbedrifter
+          som vil ha et profesjonelt nettbilde uten å betale byråpriser.
+        </p>
+        <p>
+          Nettsiden leveres håndkodet fra bunnen av – ingen sidebygger, ingen unødvendige
+          månedlige lisenser. Bare rask, ren kode som laster fort og ser bra ut.
+        </p>
+        <p>
+          Trenger du vedlikehold og hosting etterpå? Det fikser jeg for 500 kr/mnd –
+          da slipper du å tenke på domene, oppdateringer eller teknisk support.
+        </p>
+      </div>
+      <div class="fi fi-d2">
+        <img
+          src="https://picsum.photos/seed/thorsweb-about/600/480"
+          alt="Fredrik – webutvikler i Trondheim, ThorsWeb"
+          class="about-img"
+          loading="lazy"
+          width="600"
+          height="480"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HVORFOR OSS ===== -->
+<section id="why" aria-label="Hvorfor velge ThorsWeb">
+  <div class="container">
+    <span class="label fi">Hvorfor ThorsWeb</span>
+    <h2 class="section-title fi fi-d1">Det du ikke finner<br>hos de store byråene</h2>
+    <div class="why-grid">
+
+      <div class="why-card fi fi-d1">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Åpne priser</h3>
+        <p>Du ser eksakt hva du betaler – ingen skjulte kostnader, ingen overraskelser. Fast pris avtalt på forhånd, alltid.</p>
+      </div>
+
+      <div class="why-card fi fi-d2">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Rask levering</h3>
+        <p>Fra godkjent brief til ferdig nettsted på 1–3 uker. Ingen lang kø, ingen unødvendige møter – bare effektiv jobb.</p>
+      </div>
+
+      <div class="why-card fi fi-d3">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
+            <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </svg>
+        </div>
+        <h3>Lokal forståelse</h3>
+        <p>Jeg kjenner det norske SMB-markedet og vet hva som overbeviser norske kunder – norsk tekst, lokale tillitssignaler.</p>
+      </div>
+
+      <div class="why-card fi fi-d4">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>Ren kode</h3>
+        <p>Ingen sidebygger, ingen tungvint CMS. Håndkodet HTML/CSS som laster raskt, rangerer godt i Google og ikke koster månedlig.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAKKER ===== -->
+<section id="services" aria-label="Tjenester og priser">
+  <div class="container">
+    <span class="label fi">Pakker og priser</span>
+    <h2 class="section-title fi fi-d1">Transparent prising –<br>ingen overraskelser</h2>
+    <div class="pkg-grid">
+
+      <div class="pkg-card featured fi">
+        <div class="pkg-badge">1 dag levering</div>
+        <p class="pkg-name">Nettside</p>
+        <div class="pkg-price">4 000 <span>kr</span></div>
+        <p class="pkg-desc">Én profesjonell landingsside levert innen 1 arbeidsdag etter godkjent brief. Ingen kø, ingen unødvendige møter.</p>
+        <ul class="pkg-features" role="list">
+          <li>Komplett single-page nettsted</li>
+          <li>Mobilresponsivt design</li>
+          <li>Kontaktskjema med validering</li>
+          <li>SEO-grunnoppsett (meta, JSON-LD)</li>
+          <li>Krever klar tekst og logo fra deg</li>
+        </ul>
+        <div style="border-top:1px solid var(--border);margin:1.5rem 0 1.25rem;padding-top:1.25rem;">
+          <p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:0.5rem;">Tillegg</p>
+          <p style="font-size:0.95rem;color:var(--text);">Vedlikehold &amp; hosting — <strong style="color:var(--white)">500 kr/mnd</strong></p>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Inkluderer domene, hosting, oppdateringer og support</p>
+        </div>
+        <a href="#contact" class="btn btn-accent pkg-cta">Bestill nettside</a>
+      </div>
+
+    </div>
+    <p class="pkg-note fi">Alle priser inkl. mva. · Vi tar imot Vipps, Visa og Mastercard</p>
+  </div>
+</section>
+
+
+
+<!-- ===== FAQ ===== -->
+<section id="faq" aria-label="Ofte stilte spørsmål">
+  <div class="container">
+    <span class="label fi">FAQ</span>
+    <h2 class="section-title fi fi-d1">Ofte stilte<br>spørsmål</h2>
+    <div class="faq-list fi fi-d2">
+
+      <div class="faq-item">
+        <button class="faq-q active" aria-expanded="true">
+          Hva koster en nettside?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            En nettside koster 4 000 kr og leveres innen 1 arbeidsdag. I tillegg tilbyr jeg vedlikehold og hosting for 500 kr/mnd – inkluderer domene, hosting, oppdateringer og support. Ingen bindingstid. Alle priser inkl. mva.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Hvor lang tid tar det å lage en nettside?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Nettsiden er ferdig innen 1 arbeidsdag etter at jeg har mottatt innhold og godkjent brief. Prosessen er enkel: send meg tekst, logo og eventuelt bilder – så leverer jeg en ferdig nettside innen slutten av samme dag.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Hva trenger jeg å bidra med?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            For å levere på 1 dag trenger jeg: logo, en kort beskrivelse av bedriften, tjenesteliste med priser, og kontaktinfo. Bilder er fint å ha, men ikke et krav – jeg kan bruke profesjonelle plassholdere til du har egne klare.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Inkluderer prisen mobilversjon?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Ja – alle nettsidene jeg leverer er fullstendig mobilresponsive og testet på alle vanlige skjermstørrelser. Over 60 % av nettrafikk kommer fra mobil, så dette er alltid standard, ikke et tillegg.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Hvilke betalingsmetoder tar dere imot?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Vi tar imot Vipps, bankkort (Visa/Mastercard) og faktura. Typisk betaler du 50 % ved oppstart og 50 % ved levering – ingen betaling før du er fornøyd med resultatet.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section id="contact" aria-label="Kontakt og forespørsel">
+  <div class="container">
+    <span class="label fi">Kontakt</span>
+    <h2 class="section-title fi fi-d1">La oss snakke<br>om ditt prosjekt</h2>
+    <div class="contact-grid">
+
+      <!-- Venstre: kontaktinfo -->
+      <div class="fi fi-d1">
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.43 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16l.2.92z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Telefon</h4>
+            <a href="tel:+4790414225">90 41 42 25</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <h4>E-post</h4>
+            <!-- TODO: erstatt med ekte e-postadresse -->
+            <p>hei@thorsweb.no</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
+              <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Lokasjon</h4>
+            <p>Trondheim, Norge<br><span style="font-size:0.8rem;color:var(--text-muted)">Remote – betjener hele Norge</span></p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Tilgjengelighet</h4>
+            <p>Etter avtale<br><span style="font-size:0.8rem;color:var(--text-muted)">Respons innen 24 timer</span></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Høyre: prosjektskjema -->
+      <div class="fi fi-d2">
+        <!-- TODO: Koble til backend. Alternativer: Formspree.io (gratis), Netlify Forms, eller Emailjs -->
+        <form id="bForm" novalidate>
+          <div class="form-group">
+            <label for="fname">Ditt navn *</label>
+            <input type="text" id="fname" name="name" placeholder="Kari Nordmann" required autocomplete="name">
+            <span class="err-msg" id="e-name" role="alert">Vennligst skriv inn ditt navn</span>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Telefon *</label>
+            <input type="tel" id="fphone" name="phone" placeholder="900 00 000" required autocomplete="tel">
+            <span class="err-msg" id="e-phone" role="alert">Skriv inn et gyldig norsk telefonnummer</span>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Ønsket pakke *</label>
+            <select id="fservice" name="service" required>
+              <option value="">Velg tjeneste</option>
+              <option value="nettside">Nettside – 4 000 kr (levering 1 dag)</option>
+              <option value="annet">Annet / spørsmål</option>
+            </select>
+            <span class="err-msg" id="e-service" role="alert">Vennligst velg en pakke</span>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Fortell om bedriften din</label>
+            <textarea id="fmsg" name="message" placeholder="Hva driver du med? Hva ønsker du å oppnå med nettsiden?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center">Send forespørsel</button>
+        </form>
+        <div id="fSuccess" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <h3>Forespørsel mottatt!</h3>
+          <p>Takk for henvendelsen. Jeg tar kontakt innen 24 timer for å diskutere prosjektet ditt.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHATSAPP FAB ===== -->
+<a href="https://wa.me/4790414225"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat med ThorsWeb på WhatsApp"
+   class="whatsapp-fab">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.506 3.93 1.395 5.6L0 24l6.545-1.367A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.367l-.36-.213-3.726.978.994-3.639-.235-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.574 6.574 2.182 12 2.182S21.818 6.574 21.818 12 17.426 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- ===== GDPR COOKIE-BANNER ===== -->
+<div id="cookie-banner" role="dialog" aria-label="Informasjonskapsler" aria-modal="false">
+  <p>Vi bruker informasjonskapsler for å forbedre din opplevelse. <a href="#">Les vår personvernpolicy</a></p>
+  <button id="cookie-accept">Godta</button>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <a href="#" class="footer-brand-name">Thors<span>Web</span></a>
+        <p class="footer-tagline">Nettsider som selger – for norske småbedrifter</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.7;max-width:320px;">
+          Trondheim-basert webutvikler spesialisert på konverteringsvennlige nettsider.
+          Fast pris, rask levering, ingen overraskelser.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pakker</h4>
+        <ul role="list">
+          <li>Nettside <span>4 000 kr</span></li>
+          <li>Vedlikehold &amp; hosting <span>500 kr/mnd</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul role="list">
+          <li>Telefon <a href="tel:+4790414225">90 41 42 25</a></li>
+          <li>Lokasjon <span>Trondheim</span></li>
+          <li>Tilgjengelighet <span>Etter avtale</span></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ThorsWeb · Org.nr: 000 000 000 · Trondheim · <a href="tel:+4790414225">90 41 42 25</a></span>
+      <span>Nettsider som selger</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+  // 1. Nav scroll handler
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // 2. Hamburger toggle + mobilmeny lukking
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mob');
+  hbg.addEventListener('click', () => {
+    const isOpen = mob.classList.toggle('open');
+    hbg.classList.toggle('open', isOpen);
+    hbg.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mob.classList.remove('open');
+      hbg.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // 3. IntersectionObserver for fade-in animasjoner
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+  // 4. FAQ accordion – første spørsmål åpent ved sidelast
+  const firstFaq = document.querySelector('.faq-q.active');
+  if (firstFaq) {
+    const firstAns = firstFaq.nextElementSibling;
+    firstAns.style.maxHeight = firstAns.scrollHeight + 'px';
+  }
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('active');
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+      if (!isOpen) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // 5. Kontaktskjema validering + simulert innsending
+  const bForm = document.getElementById('bForm');
+  const fSuccess = document.getElementById('fSuccess');
+
+  function setErr(id, errId, show) {
+    document.getElementById(id).classList.toggle('err', show);
+    document.getElementById(errId).classList.toggle('show', show);
+  }
+
+  ['fname','fphone','fservice'].forEach((id, i) => {
+    const errIds = ['e-name','e-phone','e-service'];
+    const el = document.getElementById(id);
+    el.addEventListener(id === 'fservice' ? 'change' : 'input', () => setErr(id, errIds[i], false));
+  });
+
+  bForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim().replace(/\s/g, '');
+    const service = document.getElementById('fservice').value;
+    let ok = true;
+
+    if (name.length < 2)             { setErr('fname',    'e-name',    true);  ok = false; } else { setErr('fname',    'e-name',    false); }
+    if (!/^\+?[\d]{8,}$/.test(phone)){ setErr('fphone',   'e-phone',   true);  ok = false; } else { setErr('fphone',   'e-phone',   false); }
+    if (!service)                    { setErr('fservice', 'e-service', true);  ok = false; } else { setErr('fservice', 'e-service', false); }
+
+    if (ok) {
+      bForm.style.display = 'none';
+      fSuccess.style.display = 'block';
+    }
+  });
+
+  // 6. Cookie-banner logikk
+  if (!localStorage.getItem('cookie_consent')) {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
