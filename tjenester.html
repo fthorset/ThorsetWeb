@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>ThorsetWeb – Design og utvikling for norske bedrifter</title>
-  <meta name="description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale. Trondheim-basert, betjener hele Norge.">
+  <title>Tjenester – ThorsetWeb</title>
+  <meta name="description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 500 kr/mnd. Ta kontakt for pris. Se hva som er inkludert og vanlige spørsmål.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="index.html">
+  <link rel="canonical" href="tjenester.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ThorsetWeb – Design og utvikling for norske bedrifter">
-  <meta property="og:description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale.">
+  <meta property="og:title" content="Tjenester – ThorsetWeb">
+  <meta property="og:description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 500 kr/mnd. Ta kontakt for pris.">
   <meta property="og:locale" content="nb_NO">
   <meta property="og:site_name" content="ThorsetWeb">
 
@@ -29,7 +29,7 @@
     "@type": "ProfessionalService",
     "name": "ThorsetWeb",
     "description": "ThorsetWeb hjelper bedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag.",
-    "url": "index.html",
+    "url": "tjenester.html",
     "telephone": "+4790414225",
     "address": {
       "@type": "PostalAddress",
@@ -37,16 +37,7 @@
       "postalCode": "7030",
       "addressCountry": "NO"
     },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    ],
     "priceRange": "kr kr",
-    "image": "https://picsum.photos/seed/thorsetweb/1200/630",
     "sameAs": []
   }
   </script>
@@ -133,36 +124,44 @@
     .mobile-menu a { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--accent); }
 
-    /* HERO */
-    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0; }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
-    .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
-    .hero-content { position: relative; z-index: 1; padding: 9rem 0 5rem; }
-    .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
-    .hero-title .accent-blue { color: var(--accent); display: block; }
-    .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
-    .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
-    .stat-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.3rem; }
+    /* PAGE HERO */
+    .page-hero { padding: 10rem 0 5rem; background: var(--dark); border-bottom: 1px solid var(--border); }
+    .page-hero .label { margin-bottom: 0.75rem; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; }
+    .page-hero p { font-size: 1.05rem; color: var(--text); max-width: 500px; margin-top: 1rem; }
 
-    /* OM OSS */
-    #about { background: var(--dark); }
-    .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
-    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
-    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: saturate(0.75); transition: filter 0.4s; }
-    .about-img:hover { filter: saturate(1); }
-    .about-text p { margin-bottom: 1.25rem; color: var(--text); }
+    /* PAKKE */
+    #pakke { background: var(--bg); }
+    .pakke-wrap { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 3rem auto 0; }
+    @media (min-width: 768px) { .pakke-wrap { grid-template-columns: 1fr 1fr; } }
+    .pakke-card { background: var(--surface); border: 1px solid var(--accent-dim); padding: 2.5rem; position: relative; }
+    .pakke-card.featured { border-color: var(--accent); background: var(--card); }
+    .badge { display: inline-block; background: var(--accent); color: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; margin-bottom: 1.5rem; }
+    .pakke-price { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .pakke-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); margin-left: 0.25rem; }
+    .pakke-name { font-size: 1.15rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+    .pakke-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+    .pakke-list { list-style: none; margin-bottom: 2rem; }
+    .pakke-list li { font-size: 0.88rem; color: var(--text); padding: 0.55rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; }
+    .pakke-list li:last-child { border-bottom: none; }
+    .pakke-list li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex-shrink: 0; margin-top: 0.5rem; }
+    .addon-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem 2.5rem; max-width: 900px; margin: 1.5rem auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .addon-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .addon-info p { font-size: 0.85rem; color: var(--text-muted); max-width: 480px; }
+    .addon-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--white); white-space: nowrap; }
+    .addon-price span { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
 
-    /* HVORFOR */
-    #why { background: var(--bg); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .why-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
-    .why-card:hover { border-color: var(--accent-dim); transform: translateY(-4px); }
-    .why-icon { width: 48px; height: 48px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
-    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
-    .why-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
-    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+    /* FAQ */
+    #faq { background: var(--dark); }
+    .faq-list { max-width: 780px; margin: 3rem auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); transition: color 0.2s; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .faq-icon { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); transition: transform 0.3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-a-inner { padding-bottom: 1.5rem; font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }
 
     /* WHATSAPP FAB */
     .whatsapp-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
@@ -195,8 +194,6 @@
     .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--text-muted); }
     .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .footer-bottom a:hover { color: var(--accent); }
-
-    @media (max-width: 600px) { .hero-stats { gap: 2rem; } }
   </style>
 </head>
 <body>
@@ -207,8 +204,8 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">Thorset<span>Web</span></a>
       <ul class="nav-links" role="list">
-        <li><a href="index.html" class="active">Hjem</a></li>
-        <li><a href="tjenester.html">Tjenester</a></li>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="tjenester.html" class="active">Tjenester</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
       <a href="kontakt.html" class="btn btn-accent nav-cta">Få tilbud</a>
@@ -226,129 +223,138 @@
   <a href="kontakt.html">Kontakt</a>
 </div>
 
-<!-- HERO -->
-<section id="hero" aria-label="Velkomstseksjon">
-  <div class="hero-bg"></div>
-  <div class="hero-grid" aria-hidden="true"></div>
+<!-- PAGE HERO -->
+<div class="page-hero">
   <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title fi">
-        Design og utvikling
-        <span class="accent-blue">for din bedrift.</span>
-      </h1>
-      <p class="hero-sub fi fi-d1">
-        Vi hjelper bedrifter med å etablere seg på nett med moderne nettsider
-        som presenterer virksomheten din på en god måte.
-      </p>
-      <div class="hero-btns fi fi-d2">
-        <a href="kontakt.html" class="btn btn-accent">Få tilbud</a>
-        <a href="tjenester.html" class="btn btn-outline">Se tjenester</a>
+    <span class="label fi">Tjenester</span>
+    <h1 class="fi fi-d1">Hva vi tilbyr</h1>
+    <p class="fi fi-d2">Én pakke. Ta kontakt for å få en pris.</p>
+  </div>
+</div>
+
+<!-- PAKKE -->
+<section id="pakke" aria-label="Vår pakke">
+  <div class="container">
+    <span class="label fi">Pris</span>
+    <h2 class="section-title fi fi-d1">Nettside – én pakke</h2>
+
+    <div class="pakke-wrap">
+      <div class="pakke-card featured fi fi-d1">
+        <span class="badge">Inkludert</span>
+        <div class="pakke-price" style="font-size:1.4rem; color:var(--accent-light);">Avtales ved kontakt</div>
+        <div class="pakke-name">Komplett nettside</div>
+        <p class="pakke-desc">Levert innen 1 virkedag etter godkjent innhold.</p>
+        <ul class="pakke-list" role="list">
+          <li>Mobilresponsivt design</li>
+          <li>Grunnleggende SEO</li>
+          <li>Kontaktskjema</li>
+          <li>Smooth animasjoner</li>
+          <li>Rask lastetid</li>
+          <li>Kodet for hånd – ingen sidebygger</li>
+        </ul>
+        <a href="kontakt.html" class="btn btn-accent">Bestill nå</a>
       </div>
-      <div class="hero-stats fi fi-d3" aria-label="Nøkkeltall">
-        <div>
-          <div class="stat-num" style="font-size:1.2rem;">Avtales ved kontakt</div>
-          <div class="stat-label">Pris</div>
-        </div>
-        <div>
-          <div class="stat-num">1 dag</div>
-          <div class="stat-label">Leveringstid</div>
-        </div>
-        <div>
-          <div class="stat-num">Fast pris</div>
-          <div class="stat-label">Ingen overraskelser</div>
-        </div>
+
+      <div class="pakke-card fi fi-d2">
+        <span class="badge" style="background: var(--surface); color: var(--accent); border: 1px solid var(--accent-dim);">Hva du trenger</span>
+        <div class="pakke-name" style="margin-top: 0.5rem;">Du sender oss</div>
+        <p class="pakke-desc">Det eneste vi trenger for å komme i gang.</p>
+        <ul class="pakke-list" role="list">
+          <li>Tekst om bedriften</li>
+          <li>Tjenester og priser</li>
+          <li>Kontaktinformasjon</li>
+          <li>Bilder (eller vi finner passende)</li>
+        </ul>
+        <a href="kontakt.html" class="btn btn-outline">Ta kontakt</a>
       </div>
+    </div>
+
+    <div class="addon-card fi fi-d3">
+      <div class="addon-info">
+        <h3>Vedlikehold &amp; hosting</h3>
+        <p>Vi holder nettsiden oppe og oppdatert. Inkluderer hosting, teknisk støtte og små endringer. Ingen bindingstid.</p>
+      </div>
+      <div class="addon-price">500 <span>kr/mnd</span></div>
     </div>
   </div>
 </section>
 
-<!-- OM OSS -->
-<section id="about" aria-label="Om ThorsetWeb">
+<!-- FAQ -->
+<section id="faq" aria-label="Ofte stilte spørsmål">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text fi">
-        <span class="label">Om oss</span>
-        <h2 class="section-title">Om ThorsetWeb</h2>
-        <div class="orn"><div class="orn-d"></div></div>
-        <p>
-          ThorsetWeb er drevet av Fredrik Thorset, student i datateknologi ved NTNU.
-          Vi tilbyr webutvikling til bedrifter som trenger en god nettside.
-          Ta kontakt for å få et tilbud tilpasset ditt behov.
-        </p>
-        <p>
-          Nettsidene er bygget fra bunnen av – ikke i Wix eller WordPress.
-          Det gir raskere sider, bedre kontroll, og ingen unødvendige
-          månedlige kostnader.
-        </p>
-        <p>
-          Trenger du noen til å håndtere vedlikehold og hosting etterpå,
-          tilbyr vi det for 500 kr i måneden uten bindingstid.
-        </p>
-      </div>
-      <div class="fi fi-d2">
-        <img
-          src="https://picsum.photos/seed/thorsetweb-about/600/480"
-          alt="Fredrik – webutvikler i Trondheim, ThorsetWeb"
-          class="about-img"
-          loading="lazy"
-          width="600"
-          height="480"
-        >
-      </div>
-    </div>
-  </div>
-</section>
+    <span class="label fi">FAQ</span>
+    <h2 class="section-title fi fi-d1">Ofte stilte spørsmål</h2>
 
-<!-- HVA VI TILBYR -->
-<section id="why" aria-label="Hva vi tilbyr">
-  <div class="container">
-    <span class="label fi">Hva vi tilbyr</span>
-    <h2 class="section-title fi fi-d1">Webutvikling<br>som fungerer</h2>
-    <div class="why-grid">
+    <div class="faq-list fi fi-d2" role="list">
 
-      <div class="why-card fi fi-d1">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Kan dere levere innen én dag?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
           </svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">
+            Ja, forutsatt at vi mottar alt innhold tidlig på dagen. Send oss tekst, kontaktinfo og eventuelle bilder om morgenen, så har du nettsiden klar samme kveld eller neste morgen.
+          </div>
         </div>
-        <h3>Pris etter avtale</h3>
-        <p>Ingen skjulte kostnader eller overraskelser. Ta kontakt for å få et tilbud.</p>
       </div>
 
-      <div class="why-card fi fi-d2">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Hva er inkludert i pakken?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
           </svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">
+            En ferdig, mobilresponsiv nettside kodet for hånd – inkludert design, grunnleggende SEO, kontaktskjema og animasjoner. Det eneste som ikke er inkludert er hosting og vedlikehold, som er valgfritt til 500 kr/mnd. Pris på selve nettsiden avtales ved kontakt.
+          </div>
         </div>
-        <h3>Levert neste dag</h3>
-        <p>Sender du oss innholdet, har du nettsiden klar dagen etter.</p>
       </div>
 
-      <div class="why-card fi fi-d3">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
-            <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Kan jeg gjøre endringer i ettertid?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
           </svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">
+            Ja. Mindre tekstendringer og justeringer er inkludert i vedlikeholdsavtalen. Større endringer (nye seksjoner, ny funksjonalitet) avtales separat.
+          </div>
         </div>
-        <h3>Tilpasset din bedrift</h3>
-        <p>Design og innhold tilpasses din bransje og dine kunder. Grunnleggende SEO er alltid inkludert.</p>
       </div>
 
-      <div class="why-card fi fi-d4">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Trenger jeg å bruke vedlikeholdsavtalen?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
           </svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">
+            Nei. Du kan kjøpe nettsiden og hoste den selv hvis du ønsker det. Vedlikeholdsavtalen er valgfri, uten bindingstid, og du kan avslutte når som helst.
+          </div>
         </div>
-        <h3>Bygget fra bunnen av</h3>
-        <p>Vi bruker ikke sidebyggere. Nettsiden er kodet for hånd – raskere, enklere og uten unødvendige lisenser.</p>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Hva skiller dette fra Wix eller WordPress?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">
+            Nettsiden er kodet for hånd uten sidebyggere eller plugins. Det gir raskere lastetid, enklere vedlikehold og ingen månedlige lisenskostnader du ikke er klar over. Du eier koden og kan flytte den dit du vil.
+          </div>
+        </div>
       </div>
 
     </div>
@@ -430,6 +436,24 @@
   document.getElementById('cookie-accept').addEventListener('click', () => {
     localStorage.setItem('cookie_consent', 'true');
     document.getElementById('cookie-banner').style.display = 'none';
+  });
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-a');
+      const inner = item.querySelector('.faq-a-inner');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = '0';
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = inner.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 </script>
 </body>

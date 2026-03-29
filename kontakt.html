@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>ThorsetWeb – Design og utvikling for norske bedrifter</title>
-  <meta name="description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale. Trondheim-basert, betjener hele Norge.">
+  <title>Kontakt – ThorsetWeb</title>
+  <meta name="description" content="Ta kontakt med ThorsetWeb. Ring 90 41 42 25, send e-post til hei@thorsetweb.no eller bruk skjemaet for å bestille nettside.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="index.html">
+  <link rel="canonical" href="kontakt.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ThorsetWeb – Design og utvikling for norske bedrifter">
-  <meta property="og:description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale.">
+  <meta property="og:title" content="Kontakt – ThorsetWeb">
+  <meta property="og:description" content="Ta kontakt for å bestille nettside. Ring, skriv eller bruk skjemaet – vi svarer raskt.">
   <meta property="og:locale" content="nb_NO">
   <meta property="og:site_name" content="ThorsetWeb">
 
@@ -29,24 +29,16 @@
     "@type": "ProfessionalService",
     "name": "ThorsetWeb",
     "description": "ThorsetWeb hjelper bedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag.",
-    "url": "index.html",
+    "url": "kontakt.html",
     "telephone": "+4790414225",
+    "email": "hei@thorsetweb.no",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Trondheim",
       "postalCode": "7030",
       "addressCountry": "NO"
     },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    ],
     "priceRange": "kr kr",
-    "image": "https://picsum.photos/seed/thorsetweb/1200/630",
     "sameAs": []
   }
   </script>
@@ -65,6 +57,7 @@
       --white:        #F0F0FA;
       --text:         #C8C8D8;
       --text-muted:   #7878A8;
+      --error:        #F76F6F;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -102,8 +95,6 @@
     .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2.1rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; }
     .btn-accent { background: var(--accent); color: var(--bg); }
     .btn-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,142,247,0.3); }
-    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent-dim); }
-    .btn-outline:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); transform: translateY(-2px); }
     .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     /* NAV */
@@ -133,36 +124,53 @@
     .mobile-menu a { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--accent); }
 
-    /* HERO */
-    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0; }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
-    .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
-    .hero-content { position: relative; z-index: 1; padding: 9rem 0 5rem; }
-    .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
-    .hero-title .accent-blue { color: var(--accent); display: block; }
-    .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
-    .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
-    .stat-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.3rem; }
+    /* PAGE HERO */
+    .page-hero { padding: 10rem 0 5rem; background: var(--dark); border-bottom: 1px solid var(--border); }
+    .page-hero .label { margin-bottom: 0.75rem; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; }
+    .page-hero p { font-size: 1.05rem; color: var(--text); max-width: 500px; margin-top: 1rem; }
 
-    /* OM OSS */
-    #about { background: var(--dark); }
-    .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
-    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
-    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: saturate(0.75); transition: filter 0.4s; }
-    .about-img:hover { filter: saturate(1); }
-    .about-text p { margin-bottom: 1.25rem; color: var(--text); }
+    /* KONTAKT */
+    #kontakt { background: var(--bg); }
+    .kontakt-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; margin-top: 3rem; }
+    @media (min-width: 768px) { .kontakt-grid { grid-template-columns: 1fr 1.4fr; } }
+    .kontakt-info h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .info-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+    .info-item:last-child { border-bottom: none; }
+    .info-icon { width: 40px; height: 40px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .info-icon svg { width: 18px; height: 18px; color: var(--accent); }
+    .info-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; }
+    .info-value { font-size: 0.92rem; color: var(--text); }
+    .info-value a { color: var(--accent); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
 
-    /* HVORFOR */
-    #why { background: var(--bg); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .why-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
-    .why-card:hover { border-color: var(--accent-dim); transform: translateY(-4px); }
-    .why-icon { width: 48px; height: 48px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
-    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
-    .why-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
-    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+    /* FORM */
+    .form-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea { width: 100%; background: var(--card); border: 1px solid var(--border); color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.92rem; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-muted); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--card); }
+    .field-error { display: none; font-size: 0.75rem; color: var(--error); margin-top: 0.4rem; }
+    .field-error.show { display: block; }
+    .form-group input.invalid,
+    .form-group select.invalid,
+    .form-group textarea.invalid { border-color: var(--error); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-submit { width: 100%; }
+    .form-success { display: none; background: var(--card); border: 1px solid var(--accent-dim); padding: 2rem; text-align: center; }
+    .form-success.show { display: block; }
+    .form-success h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+    .form-success p { font-size: 0.88rem; color: var(--text-muted); }
 
     /* WHATSAPP FAB */
     .whatsapp-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
@@ -195,8 +203,6 @@
     .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--text-muted); }
     .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .footer-bottom a:hover { color: var(--accent); }
-
-    @media (max-width: 600px) { .hero-stats { gap: 2rem; } }
   </style>
 </head>
 <body>
@@ -207,9 +213,9 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">Thorset<span>Web</span></a>
       <ul class="nav-links" role="list">
-        <li><a href="index.html" class="active">Hjem</a></li>
+        <li><a href="index.html">Hjem</a></li>
         <li><a href="tjenester.html">Tjenester</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
       </ul>
       <a href="kontakt.html" class="btn btn-accent nav-cta">Få tilbud</a>
       <button class="hamburger" id="hbg" aria-label="Åpne meny" aria-expanded="false">
@@ -226,129 +232,117 @@
   <a href="kontakt.html">Kontakt</a>
 </div>
 
-<!-- HERO -->
-<section id="hero" aria-label="Velkomstseksjon">
-  <div class="hero-bg"></div>
-  <div class="hero-grid" aria-hidden="true"></div>
+<!-- PAGE HERO -->
+<div class="page-hero">
   <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title fi">
-        Design og utvikling
-        <span class="accent-blue">for din bedrift.</span>
-      </h1>
-      <p class="hero-sub fi fi-d1">
-        Vi hjelper bedrifter med å etablere seg på nett med moderne nettsider
-        som presenterer virksomheten din på en god måte.
-      </p>
-      <div class="hero-btns fi fi-d2">
-        <a href="kontakt.html" class="btn btn-accent">Få tilbud</a>
-        <a href="tjenester.html" class="btn btn-outline">Se tjenester</a>
-      </div>
-      <div class="hero-stats fi fi-d3" aria-label="Nøkkeltall">
-        <div>
-          <div class="stat-num" style="font-size:1.2rem;">Avtales ved kontakt</div>
-          <div class="stat-label">Pris</div>
-        </div>
-        <div>
-          <div class="stat-num">1 dag</div>
-          <div class="stat-label">Leveringstid</div>
-        </div>
-        <div>
-          <div class="stat-num">Fast pris</div>
-          <div class="stat-label">Ingen overraskelser</div>
-        </div>
-      </div>
-    </div>
+    <span class="label fi">Kontakt</span>
+    <h1 class="fi fi-d1">Ta kontakt</h1>
+    <p class="fi fi-d2">Send en melding, ring, eller bruk skjemaet – vi svarer raskt.</p>
   </div>
-</section>
+</div>
 
-<!-- OM OSS -->
-<section id="about" aria-label="Om ThorsetWeb">
+<!-- KONTAKT -->
+<section id="kontakt" aria-label="Kontaktinformasjon og skjema">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text fi">
-        <span class="label">Om oss</span>
-        <h2 class="section-title">Om ThorsetWeb</h2>
-        <div class="orn"><div class="orn-d"></div></div>
-        <p>
-          ThorsetWeb er drevet av Fredrik Thorset, student i datateknologi ved NTNU.
-          Vi tilbyr webutvikling til bedrifter som trenger en god nettside.
-          Ta kontakt for å få et tilbud tilpasset ditt behov.
-        </p>
-        <p>
-          Nettsidene er bygget fra bunnen av – ikke i Wix eller WordPress.
-          Det gir raskere sider, bedre kontroll, og ingen unødvendige
-          månedlige kostnader.
-        </p>
-        <p>
-          Trenger du noen til å håndtere vedlikehold og hosting etterpå,
-          tilbyr vi det for 500 kr i måneden uten bindingstid.
-        </p>
+    <div class="kontakt-grid">
+
+      <div class="kontakt-info fi">
+        <h3>Kontaktinformasjon</h3>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.68a16 16 0 0 0 5.45 5.45l1.65-1.65a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Telefon</div>
+            <div class="info-value"><a href="tel:+4790414225">90 41 42 25</a></div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">E-post</div>
+            <div class="info-value"><a href="mailto:hei@thorsetweb.no">hei@thorsetweb.no</a></div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
+              <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Lokasjon</div>
+            <div class="info-value">Trondheim</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Tilgjengelighet</div>
+            <div class="info-value">Etter avtale</div>
+          </div>
+        </div>
       </div>
+
       <div class="fi fi-d2">
-        <img
-          src="https://picsum.photos/seed/thorsetweb-about/600/480"
-          alt="Fredrik – webutvikler i Trondheim, ThorsetWeb"
-          class="about-img"
-          loading="lazy"
-          width="600"
-          height="480"
-        >
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="form-card">
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Navn</label>
+                <input type="text" id="name" name="name" placeholder="Ditt navn" autocomplete="name">
+                <span class="field-error" id="name-err">Fyll inn navn</span>
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="XX XX XX XX" autocomplete="tel">
+                <span class="field-error" id="phone-err">Fyll inn telefonnummer</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-post</label>
+              <input type="email" id="email" name="email" placeholder="din@epost.no" autocomplete="email">
+              <span class="field-error" id="email-err">Fyll inn en gyldig e-postadresse</span>
+            </div>
+            <div class="form-group">
+              <label for="service">Hva ønsker du?</label>
+              <select id="service" name="service">
+                <option value="">Velg alternativ</option>
+                <option value="nettside">Nettside – 4 000 kr</option>
+                <option value="vedlikehold">Vedlikehold &amp; hosting – 500 kr/mnd</option>
+                <option value="annet">Annet / ikke sikker enda</option>
+              </select>
+              <span class="field-error" id="service-err">Velg et alternativ</span>
+            </div>
+            <div class="form-group">
+              <label for="message">Melding (valgfritt)</label>
+              <textarea id="message" name="message" placeholder="Fortell kort om bedriften og hva du trenger…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent form-submit">Send forespørsel</button>
+          </form>
 
-<!-- HVA VI TILBYR -->
-<section id="why" aria-label="Hva vi tilbyr">
-  <div class="container">
-    <span class="label fi">Hva vi tilbyr</span>
-    <h2 class="section-title fi fi-d1">Webutvikling<br>som fungerer</h2>
-    <div class="why-grid">
-
-      <div class="why-card fi fi-d1">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
+          <div class="form-success" id="form-success" role="alert">
+            <h3>Takk for henvendelsen!</h3>
+            <p>Vi tar kontakt med deg innen én virkedag.</p>
+          </div>
         </div>
-        <h3>Pris etter avtale</h3>
-        <p>Ingen skjulte kostnader eller overraskelser. Ta kontakt for å få et tilbud.</p>
-      </div>
-
-      <div class="why-card fi fi-d2">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <h3>Levert neste dag</h3>
-        <p>Sender du oss innholdet, har du nettsiden klar dagen etter.</p>
-      </div>
-
-      <div class="why-card fi fi-d3">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
-            <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-          </svg>
-        </div>
-        <h3>Tilpasset din bedrift</h3>
-        <p>Design og innhold tilpasses din bransje og dine kunder. Grunnleggende SEO er alltid inkludert.</p>
-      </div>
-
-      <div class="why-card fi fi-d4">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
-          </svg>
-        </div>
-        <h3>Bygget fra bunnen av</h3>
-        <p>Vi bruker ikke sidebyggere. Nettsiden er kodet for hånd – raskere, enklere og uten unødvendige lisenser.</p>
       </div>
 
     </div>
@@ -430,6 +424,39 @@
   document.getElementById('cookie-accept').addEventListener('click', () => {
     localStorage.setItem('cookie_consent', 'true');
     document.getElementById('cookie-banner').style.display = 'none';
+  });
+
+  /* FORM VALIDATION */
+  const form = document.getElementById('contact-form');
+  function showError(id, inputEl) {
+    document.getElementById(id).classList.add('show');
+    inputEl.classList.add('invalid');
+  }
+  function clearError(id, inputEl) {
+    document.getElementById(id).classList.remove('show');
+    inputEl.classList.remove('invalid');
+  }
+  ['name','phone','email','service'].forEach(field => {
+    const el = document.getElementById(field);
+    el.addEventListener('input', () => clearError(field + '-err', el));
+    el.addEventListener('change', () => clearError(field + '-err', el));
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+    const name = document.getElementById('name');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const service = document.getElementById('service');
+    if (!name.value.trim()) { showError('name-err', name); valid = false; } else { clearError('name-err', name); }
+    if (!phone.value.trim()) { showError('phone-err', phone); valid = false; } else { clearError('phone-err', phone); }
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(email.value.trim())) { showError('email-err', email); valid = false; } else { clearError('email-err', email); }
+    if (!service.value) { showError('service-err', service); valid = false; } else { clearError('service-err', service); }
+    if (valid) {
+      form.style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
+    }
   });
 </script>
 </body>
