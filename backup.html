@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>Tjenester – ThorsetWeb</title>
-  <meta name="description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 500 kr/mnd. Ta kontakt for pris. Se hva som er inkludert og vanlige spørsmål.">
+  <title>ThorsetWeb – Design og utvikling for norske bedrifter</title>
+  <meta name="description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale. Trondheim-basert, betjener hele Norge.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="tjenester.html">
+  <link rel="canonical" href="index.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Tjenester – ThorsetWeb">
-  <meta property="og:description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 500 kr/mnd. Ta kontakt for pris.">
+  <meta property="og:title" content="ThorsetWeb – Design og utvikling for norske bedrifter">
+  <meta property="og:description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale.">
   <meta property="og:locale" content="nb_NO">
   <meta property="og:site_name" content="ThorsetWeb">
 
@@ -29,7 +29,7 @@
     "@type": "ProfessionalService",
     "name": "ThorsetWeb",
     "description": "ThorsetWeb hjelper bedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag.",
-    "url": "tjenester.html",
+    "url": "index.html",
     "telephone": "+4790414225",
     "address": {
       "@type": "PostalAddress",
@@ -37,6 +37,14 @@
       "postalCode": "7030",
       "addressCountry": "NO"
     },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
     "priceRange": "kr",
     "sameAs": []
   }
@@ -125,44 +133,36 @@
     .mobile-menu a { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--accent); }
 
-    /* PAGE HERO */
-    .page-hero { padding: 10rem 0 5rem; background: var(--dark); border-bottom: 1px solid var(--border); }
-    .page-hero .label { margin-bottom: 0.75rem; }
-    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; }
-    .page-hero p { font-size: 1.05rem; color: var(--text); max-width: 500px; margin-top: 1rem; }
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
+    .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 9rem 0 5rem; }
+    .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
+    .hero-title .accent-blue { color: var(--accent); display: block; }
+    .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.3rem; }
 
-    /* PAKKE */
-    #pakke { background: var(--bg); }
-    .pakke-wrap { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 3rem auto 0; }
-    @media (min-width: 768px) { .pakke-wrap { grid-template-columns: 1fr 1fr; } }
-    .pakke-card { background: var(--surface); border: 1px solid var(--accent-dim); padding: 2.5rem; position: relative; }
-    .pakke-card.featured { border-color: var(--accent); background: var(--card); }
-    .badge { display: inline-block; background: var(--accent); color: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; margin-bottom: 1.5rem; }
-    .pakke-price { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1; }
-    .pakke-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); margin-left: 0.25rem; }
-    .pakke-name { font-size: 1.15rem; font-weight: 600; margin: 1rem 0 0.5rem; }
-    .pakke-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.75rem; }
-    .pakke-list { list-style: none; margin-bottom: 2rem; }
-    .pakke-list li { font-size: 0.88rem; color: var(--text); padding: 0.55rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; }
-    .pakke-list li:last-child { border-bottom: none; }
-    .pakke-list li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex-shrink: 0; margin-top: 0.5rem; }
-    .addon-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem 2.5rem; max-width: 900px; margin: 1.5rem auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .addon-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
-    .addon-info p { font-size: 0.85rem; color: var(--text-muted); max-width: 480px; }
-    .addon-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--white); white-space: nowrap; }
-    .addon-price span { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
+    /* OM OSS */
+    #about { background: var(--dark); }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: saturate(0.75); transition: filter 0.4s; }
+    .about-img:hover { filter: saturate(1); }
+    .about-text p { margin-bottom: 1.25rem; color: var(--text); }
 
-    /* FAQ */
-    #faq { background: var(--dark); }
-    .faq-list { max-width: 780px; margin: 3rem auto 0; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); transition: color 0.2s; }
-    .faq-q:hover { color: var(--accent); }
-    .faq-q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .faq-icon { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); transition: transform 0.3s; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-a-inner { padding-bottom: 1.5rem; font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }
+    /* HVORFOR */
+    #why { background: var(--bg); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .why-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
+    .why-card:hover { border-color: var(--accent-dim); transform: translateY(-4px); }
+    .why-icon { width: 48px; height: 48px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
+    .why-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
 
     /* WHATSAPP FAB */
     .whatsapp-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
@@ -195,6 +195,8 @@
     .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--text-muted); }
     .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .footer-bottom a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) { .hero-stats { gap: 2rem; } }
   </style>
 </head>
 <body>
@@ -205,8 +207,8 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo"><img src="Logo3.png" alt="ThorsetWeb"></a>
       <ul class="nav-links" role="list">
-        <li><a href="index.html">Hjem</a></li>
-        <li><a href="tjenester.html" class="active">Tjenester</a></li>
+        <li><a href="index.html" class="active">Hjem</a></li>
+        <li><a href="tjenester.html">Tjenester</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
       <a href="kontakt.html" class="btn btn-accent nav-cta">Få tilbud</a>
@@ -224,138 +226,202 @@
   <a href="kontakt.html">Kontakt</a>
 </div>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
+<!-- HERO -->
+<section id="hero" aria-label="Velkomstseksjon">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="container">
-    <span class="label fi">Tjenester</span>
-    <h1 class="fi fi-d1">Hva vi tilbyr</h1>
-    <p class="fi fi-d2">Alt du trenger for å komme på nett – levert neste virkedag.</p>
-  </div>
-</div>
-
-<!-- PAKKE -->
-<section id="pakke" aria-label="Vår pakke">
-  <div class="container">
-    <span class="label fi">Pris</span>
-    <h2 class="section-title fi fi-d1">Nettside – én pakke</h2>
-
-    <div class="pakke-wrap">
-      <div class="pakke-card featured fi fi-d1">
-        <span class="badge">Inkludert</span>
-        <div class="pakke-price" style="font-size:1.4rem; color:var(--accent-light);">Avtales ved kontakt</div>
-        <div class="pakke-name">Komplett nettside</div>
-        <p class="pakke-desc">Levert innen 1 virkedag etter godkjent innhold.</p>
-        <ul class="pakke-list" role="list">
-          <li>Mobilresponsivt design</li>
-          <li>Grunnleggende SEO</li>
-          <li>Kontaktskjema</li>
-          <li>Smooth animasjoner</li>
-          <li>Rask lastetid</li>
-          <li>Ingen sidebyggere eller plugins</li>
-        </ul>
-        <a href="kontakt.html" class="btn btn-accent">Bestill nå</a>
+    <div class="hero-content">
+      <h1 class="hero-title fi">
+        Design og utvikling
+        <span class="accent-blue">for din bedrift.</span>
+      </h1>
+      <p class="hero-sub fi fi-d1">
+        Vi lager nettsider for norske bedrifter – profesjonelt design, SEO og
+        kontaktskjema inkludert. Levert på 1 dag.
+      </p>
+      <div class="hero-btns fi fi-d2">
+        <a href="kontakt.html" class="btn btn-accent">Få tilbud</a>
+        <a href="tjenester.html" class="btn btn-outline">Se tjenester</a>
       </div>
-
-      <div class="pakke-card fi fi-d2">
-        <span class="badge" style="background: var(--surface); color: var(--accent); border: 1px solid var(--accent-dim);">Hva du trenger</span>
-        <div class="pakke-name" style="margin-top: 0.5rem;">Du sender oss</div>
-        <p class="pakke-desc">Det eneste vi trenger for å komme i gang.</p>
-        <ul class="pakke-list" role="list">
-          <li>Tekst om bedriften</li>
-          <li>Tjenester og priser</li>
-          <li>Kontaktinformasjon</li>
-          <li>Bilder (eller vi finner passende)</li>
-        </ul>
-        <a href="kontakt.html" class="btn btn-outline">Ta kontakt</a>
+      <div class="hero-stats fi fi-d3" aria-label="Nøkkeltall">
+        <div>
+          <div class="stat-num">Ta kontakt</div>
+          <div class="stat-label">Pris</div>
+        </div>
+        <div>
+          <div class="stat-num">1 dag</div>
+          <div class="stat-label">Leveringstid</div>
+        </div>
+        <div>
+          <div class="stat-num">Fast pris</div>
+          <div class="stat-label">Ingen overraskelser</div>
+        </div>
       </div>
-    </div>
-
-    <div class="addon-card fi fi-d3">
-      <div class="addon-info">
-        <h3>Vedlikehold &amp; hosting</h3>
-        <p>Vi holder nettsiden oppe og oppdatert. Inkluderer hosting, teknisk støtte og små endringer. Ingen bindingstid.</p>
-      </div>
-      <div class="addon-price">500 <span>kr/mnd</span></div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" aria-label="Ofte stilte spørsmål">
+<!-- OM OSS -->
+<section id="about" aria-label="Om ThorsetWeb">
   <div class="container">
-    <span class="label fi">FAQ</span>
-    <h2 class="section-title fi fi-d1">Ofte stilte spørsmål</h2>
+    <div class="about-grid">
+      <div class="about-text fi">
+        <h2 class="section-title">Om oss</h2>
+        <div class="orn"><div class="orn-d"></div></div>
+        <p>
+          ThorsetWeb er Fredrik Thorset – webutvikler fra Trondheim med
+          bakgrunn i datateknologi fra NTNU. Vi hjelper norske bedrifter
+          med å etablere en profesjonell tilstedeværelse på nett.
+        </p>
+        <p>
+          Nettsidene er bygget uten sidebyggere – ikke Wix, ikke WordPress.
+          Resultatet er en raskere, lettere nettside uten abonnementer
+          du ikke trenger.
+        </p>
+        <p>
+          Trenger du noen til å håndtere hosting og vedlikehold etter
+          levering, tilbyr vi en løpende avtale til 500 kr/mnd
+          – uten bindingstid.
+        </p>
+      </div>
+      <div class="fi fi-d2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" class="about-img" aria-hidden="true" role="img">
+          <!-- Background -->
+          <rect width="600" height="480" fill="#14141F"/>
+          <!-- Subtle glow -->
+          <ellipse cx="280" cy="270" rx="210" ry="150" fill="#4F8EF7" opacity="0.04"/>
+          <!-- LAPTOP -->
+          <!-- Base/keyboard -->
+          <rect x="80" y="342" width="340" height="16" rx="2" fill="#1E1E2E"/>
+          <rect x="60" y="356" width="380" height="10" rx="5" fill="#181825"/>
+          <!-- Screen casing -->
+          <rect x="92" y="140" width="316" height="206" rx="7" fill="#181825" stroke="#1E1E2E" stroke-width="2"/>
+          <!-- Hinge line -->
+          <rect x="92" y="340" width="316" height="4" fill="#181825"/>
+          <!-- Screen bezel -->
+          <rect x="104" y="152" width="292" height="182" rx="4" fill="#0A0A0F"/>
+          <!-- Browser chrome -->
+          <rect x="104" y="152" width="292" height="26" rx="4" fill="#14141F"/>
+          <circle cx="120" cy="165" r="4" fill="#F76F6F" opacity="0.65"/>
+          <circle cx="134" cy="165" r="4" fill="#F7C76F" opacity="0.65"/>
+          <circle cx="148" cy="165" r="4" fill="#6FF7A0" opacity="0.65"/>
+          <!-- URL bar -->
+          <rect x="162" y="158" width="156" height="14" rx="7" fill="#1E1E2E"/>
+          <rect x="170" y="162" width="68" height="6" rx="3" fill="#7878A8" opacity="0.45"/>
+          <!-- Nav bar inside site -->
+          <rect x="104" y="178" width="292" height="18" fill="#0E0E16"/>
+          <rect x="114" y="183" width="44" height="8" rx="2" fill="#4F8EF7" opacity="0.65"/>
+          <rect x="326" y="183" width="28" height="8" rx="2" fill="#7878A8" opacity="0.4"/>
+          <rect x="360" y="183" width="28" height="8" rx="2" fill="#4F8EF7" opacity="0.5"/>
+          <!-- Hero heading -->
+          <rect x="114" y="208" width="148" height="14" rx="2" fill="#F0F0FA" opacity="0.65"/>
+          <rect x="114" y="228" width="172" height="8" rx="2" fill="#C8C8D8" opacity="0.35"/>
+          <rect x="114" y="242" width="124" height="8" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <!-- Buttons -->
+          <rect x="114" y="260" width="72" height="22" rx="2" fill="#4F8EF7" opacity="0.85"/>
+          <rect x="194" y="260" width="62" height="22" rx="2" fill="none" stroke="#4F8EF7" stroke-width="1.5" opacity="0.45"/>
+          <!-- Feature cards row -->
+          <rect x="114" y="298" width="84" height="50" rx="2" fill="#1E1E2E"/>
+          <rect x="206" y="298" width="84" height="50" rx="2" fill="#1E1E2E"/>
+          <rect x="298" y="298" width="84" height="50" rx="2" fill="#1E1E2E"/>
+          <rect x="120" y="304" width="14" height="14" rx="1" fill="#4F8EF7" opacity="0.3"/>
+          <rect x="120" y="324" width="50" height="6" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <rect x="212" y="304" width="14" height="14" rx="1" fill="#4F8EF7" opacity="0.3"/>
+          <rect x="212" y="324" width="50" height="6" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <rect x="304" y="304" width="14" height="14" rx="1" fill="#4F8EF7" opacity="0.3"/>
+          <rect x="304" y="324" width="50" height="6" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <!-- MOBILE PHONE -->
+          <!-- Body shadow -->
+          <rect x="398" y="228" width="132" height="232" rx="18" fill="#0E0E16" opacity="0.6"/>
+          <!-- Body -->
+          <rect x="394" y="222" width="132" height="232" rx="18" fill="#181825" stroke="#1E1E2E" stroke-width="1.5"/>
+          <!-- Home indicator -->
+          <rect x="434" y="438" width="52" height="4" rx="2" fill="#1E1E2E"/>
+          <!-- Dynamic island -->
+          <rect x="442" y="234" width="32" height="10" rx="5" fill="#0A0A0F"/>
+          <!-- Screen -->
+          <rect x="406" y="250" width="108" height="174" fill="#0A0A0F"/>
+          <!-- Phone nav -->
+          <rect x="406" y="250" width="108" height="18" fill="#0E0E16"/>
+          <rect x="412" y="255" width="26" height="8" rx="2" fill="#4F8EF7" opacity="0.6"/>
+          <rect x="474" y="257" width="6" height="4" rx="1" fill="#7878A8" opacity="0.5"/>
+          <rect x="474" y="263" width="6" height="4" rx="1" fill="#7878A8" opacity="0.5"/>
+          <!-- Phone hero text -->
+          <rect x="412" y="280" width="82" height="10" rx="2" fill="#F0F0FA" opacity="0.55"/>
+          <rect x="412" y="296" width="90" height="6" rx="2" fill="#C8C8D8" opacity="0.28"/>
+          <rect x="412" y="306" width="68" height="6" rx="2" fill="#C8C8D8" opacity="0.2"/>
+          <!-- Phone CTA -->
+          <rect x="412" y="320" width="62" height="18" rx="2" fill="#4F8EF7" opacity="0.8"/>
+          <!-- Phone cards -->
+          <rect x="412" y="348" width="96" height="32" rx="2" fill="#1E1E2E"/>
+          <rect x="418" y="354" width="12" height="12" rx="1" fill="#4F8EF7" opacity="0.28"/>
+          <rect x="418" y="368" width="48" height="5" rx="2" fill="#C8C8D8" opacity="0.22"/>
+          <rect x="412" y="386" width="96" height="28" rx="2" fill="#1E1E2E"/>
+          <rect x="418" y="392" width="52" height="5" rx="2" fill="#C8C8D8" opacity="0.18"/>
+          <rect x="418" y="402" width="36" height="5" rx="2" fill="#C8C8D8" opacity="0.14"/>
+          <!-- Decorative dots -->
+          <circle cx="74" cy="134" r="2.5" fill="#4F8EF7" opacity="0.25"/>
+          <circle cx="536" cy="214" r="3" fill="#4F8EF7" opacity="0.18"/>
+          <circle cx="545" cy="464" r="2" fill="#4F8EF7" opacity="0.15"/>
+          <circle cx="68" cy="408" r="2" fill="#4F8EF7" opacity="0.2"/>
+          <!-- Accent line connecting devices -->
+          <line x1="396" y1="310" x2="408" y2="310" stroke="#4F8EF7" stroke-width="1" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="faq-list fi fi-d2" role="list">
+<!-- HVA VI TILBYR -->
+<section id="why" aria-label="Hva vi tilbyr">
+  <div class="container">
+    <h2 class="section-title fi fi-d1">Hva vi<br>leverer</h2>
+    <div class="why-grid">
 
-      <div class="faq-item" role="listitem">
-        <button class="faq-q" aria-expanded="false">
-          Kan dere levere innen én dag?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      <div class="why-card fi fi-d1">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
           </svg>
-        </button>
-        <div class="faq-a" role="region">
-          <div class="faq-a-inner">
-            Ja, forutsatt at vi mottar alt innhold tidlig på dagen. Send oss tekst, kontaktinfo og eventuelle bilder om morgenen, så har du nettsiden klar samme kveld eller neste morgen.
-          </div>
         </div>
+        <h3>Ingen overraskelser</h3>
+        <p>Prisen avtales på forhånd. Ingen skjulte kostnader, ingen abonnement du ikke visste om.</p>
       </div>
 
-      <div class="faq-item" role="listitem">
-        <button class="faq-q" aria-expanded="false">
-          Hva er inkludert i pakken?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      <div class="why-card fi fi-d2">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
           </svg>
-        </button>
-        <div class="faq-a" role="region">
-          <div class="faq-a-inner">
-            En ferdig, mobilresponsiv nettside kodet for hånd – inkludert design, grunnleggende SEO, kontaktskjema og animasjoner. Det eneste som ikke er inkludert er hosting og vedlikehold, som er valgfritt til 500 kr/mnd. Pris på selve nettsiden avtales ved kontakt.
-          </div>
         </div>
+        <h3>Levert neste dag</h3>
+        <p>Sender du oss innholdet, har du nettsiden klar dagen etter.</p>
       </div>
 
-      <div class="faq-item" role="listitem">
-        <button class="faq-q" aria-expanded="false">
-          Kan jeg gjøre endringer i ettertid?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      <div class="why-card fi fi-d3">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
+            <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
           </svg>
-        </button>
-        <div class="faq-a" role="region">
-          <div class="faq-a-inner">
-            Ja. Mindre tekstendringer og justeringer er inkludert i vedlikeholdsavtalen. Større endringer (nye seksjoner, ny funksjonalitet) avtales separat.
-          </div>
         </div>
+        <h3>Tilpasset din bedrift</h3>
+        <p>Design og innhold tilpasses din bransje og dine kunder. Grunnleggende SEO er alltid inkludert.</p>
       </div>
 
-      <div class="faq-item" role="listitem">
-        <button class="faq-q" aria-expanded="false">
-          Trenger jeg å bruke vedlikeholdsavtalen?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      <div class="why-card fi fi-d4">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
           </svg>
-        </button>
-        <div class="faq-a" role="region">
-          <div class="faq-a-inner">
-            Nei. Du kan kjøpe nettsiden og hoste den selv hvis du ønsker det. Vedlikeholdsavtalen er valgfri, uten bindingstid, og du kan avslutte når som helst.
-          </div>
         </div>
-      </div>
-
-      <div class="faq-item" role="listitem">
-        <button class="faq-q" aria-expanded="false">
-          Hva skiller dette fra Wix eller WordPress?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-          </svg>
-        </button>
-        <div class="faq-a" role="region">
-          <div class="faq-a-inner">
-            Nettsiden er bygget uten sidebyggere som Wix eller WordPress. Det gir raskere lastetid, enklere vedlikehold og ingen månedlige lisenskostnader du ikke er klar over. Du eier koden og kan flytte den dit du vil.
-          </div>
-        </div>
+        <h3>Bygget fra bunnen av</h3>
+        <p>Vi bruker ikke Wix, WordPress eller plugins. Nettsiden er bygget spesifikt for deg – raskere og uten månedlige lisenser.</p>
       </div>
 
     </div>
@@ -434,24 +500,6 @@
   document.getElementById('cookie-accept').addEventListener('click', () => {
     localStorage.setItem('cookie_consent', 'true');
     document.getElementById('cookie-banner').style.display = 'none';
-  });
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const answer = item.querySelector('.faq-a');
-      const inner = item.querySelector('.faq-a-inner');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(o => {
-        o.classList.remove('open');
-        o.querySelector('.faq-a').style.maxHeight = '0';
-        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        answer.style.maxHeight = inner.scrollHeight + 'px';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
   });
 </script>
 </body>

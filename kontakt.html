@@ -38,7 +38,7 @@
       "postalCode": "7030",
       "addressCountry": "NO"
     },
-    "priceRange": "kr kr",
+    "priceRange": "kr",
     "sameAs": []
   }
   </script>
@@ -101,8 +101,9 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.6rem 0; transition: background 0.4s, padding 0.4s, border-color 0.4s; border-bottom: 1px solid transparent; }
     nav.scrolled { background: rgba(10,10,15,0.94); backdrop-filter: blur(14px); padding: 1rem 0; border-color: var(--border); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
-    .nav-logo span { color: var(--accent); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 180px; width: auto; display: block; margin-top: -0.6rem; transition: height 0.4s; }
+    nav.scrolled .nav-logo img { height: 50px; margin-top: 0; }
     .nav-links { display: none; list-style: none; gap: 2.5rem; }
     @media (min-width: 900px) { .nav-links { display: flex; } }
     .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.2s; position: relative; }
@@ -211,7 +212,7 @@
 <nav role="navigation" aria-label="Hovednavigasjon" id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Thorset<span>Web</span></a>
+      <a href="index.html" class="nav-logo"><img src="Logo3.png" alt="ThorsetWeb"></a>
       <ul class="nav-links" role="list">
         <li><a href="index.html">Hjem</a></li>
         <li><a href="tjenester.html">Tjenester</a></li>
@@ -370,9 +371,6 @@
       <div>
         <a href="index.html" class="footer-brand-name">Thorset<span>Web</span></a>
         <p class="footer-tagline">Design og utvikling for norske bedrifter.</p>
-        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.7;max-width:320px;">
-          Trondheim-basert webutvikler. Fast pris, rask levering.
-        </p>
       </div>
       <div class="footer-col">
         <h4>Sider</h4>
@@ -392,7 +390,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 ThorsetWeb · Org.nr: 000 000 000 · Trondheim · <a href="tel:+4790414225">90 41 42 25</a></span>
+      <span>© 2026 ThorsetWeb · Trondheim · <a href="tel:+4790414225">90 41 42 25</a></span>
     </div>
   </div>
 </footer>

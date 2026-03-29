@@ -3,56 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <title>ThorsetWeb – Design og utvikling for norske bedrifter</title>
-  <meta name="description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale. Trondheim-basert, betjener hele Norge.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="index.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="ThorsetWeb – Design og utvikling for norske bedrifter">
-  <meta property="og:description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale.">
-  <meta property="og:locale" content="nb_NO">
-  <meta property="og:site_name" content="ThorsetWeb">
-
-  <!-- Google Fonts -->
+  <title>Kommer snart – ThorsetWeb</title>
+  <meta name="description" content="ThorsetWeb lanseres snart. Vi bygger nettsider som gir resultater for norske bedrifter.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "ThorsetWeb",
-    "description": "ThorsetWeb hjelper bedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag.",
-    "url": "index.html",
-    "telephone": "+4790414225",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Trondheim",
-      "postalCode": "7030",
-      "addressCountry": "NO"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    ],
-    "priceRange": "kr kr",
-    "image": "https://picsum.photos/seed/thorsetweb/1200/630",
-    "sameAs": []
-  }
-  </script>
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --bg:           #0A0A0F;
       --dark:         #0E0E16;
@@ -66,371 +24,346 @@
       --text:         #C8C8D8;
       --text-muted:   #7878A8;
     }
-    html { scroll-behavior: smooth; }
-    body {
+
+    html, body {
+      height: 100%;
       background: var(--bg);
-      color: var(--text);
+      color: var(--white);
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    body::after {
-      content: '';
+
+    /* ── Bakgrunn ── */
+    .bg-effects {
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: 0.018;
+      z-index: 0;
       pointer-events: none;
-      z-index: 9999;
     }
-    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--white); line-height: 1.15; }
-    .label { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1.5rem; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 6rem 0; }
-    .orn { display: flex; align-items: center; gap: 1rem; margin: 1.75rem 0; }
-    .orn::before, .orn::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .orn-d { width: 7px; height: 7px; background: var(--accent-dim); transform: rotate(45deg); flex-shrink: 0; }
-    .fi { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79,142,247,0.13) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(79,142,247,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 90%, rgba(126,179,255,0.05) 0%, transparent 55%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 80%);
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: orb-drift 12s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 320px; height: 320px;
+      background: rgba(79,142,247,0.07);
+      top: 15%; left: 10%;
+      animation-duration: 14s;
+    }
+    .orb-2 {
+      width: 240px; height: 240px;
+      background: rgba(126,179,255,0.05);
+      top: 55%; right: 12%;
+      animation-duration: 18s;
+      animation-delay: -6s;
+    }
+    .orb-3 {
+      width: 180px; height: 180px;
+      background: rgba(79,142,247,0.06);
+      bottom: 20%; left: 30%;
+      animation-duration: 10s;
+      animation-delay: -3s;
+    }
+
+    @keyframes orb-drift {
+      0%, 100% { transform: translate(0, 0); }
+      33%       { transform: translate(30px, -20px); }
+      66%       { transform: translate(-20px, 25px); }
+    }
+
+    /* ── Hoved-layout ── */
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo-ring {
+      position: absolute;
+      inset: -18px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,142,247,0.25);
+      box-shadow:
+        0 0 0 1px rgba(79,142,247,0.1),
+        0 0 24px rgba(79,142,247,0.15),
+        inset 0 0 24px rgba(79,142,247,0.06);
+      animation: ring-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ring-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 1px rgba(79,142,247,0.1),
+          0 0 24px rgba(79,142,247,0.15),
+          inset 0 0 24px rgba(79,142,247,0.06);
+        border-color: rgba(79,142,247,0.25);
+      }
+      50% {
+        box-shadow:
+          0 0 0 1px rgba(79,142,247,0.2),
+          0 0 48px rgba(79,142,247,0.28),
+          inset 0 0 40px rgba(79,142,247,0.1);
+        border-color: rgba(79,142,247,0.5);
+      }
+    }
+
+    .logo-ring-outer {
+      position: absolute;
+      inset: -32px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,142,247,0.08);
+      animation: ring-pulse 3s ease-in-out infinite;
+      animation-delay: 0.4s;
+    }
+
+    .logo-wrap img {
+      height: 150px;
+      width: auto;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 20px rgba(79,142,247,0.2));
+    }
+
+    /* ── Label ── */
+    .label {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      padding: 0.35rem 1rem;
+      border: 1px solid rgba(79,142,247,0.25);
+      border-radius: 100px;
+      background: rgba(79,142,247,0.07);
+    }
+
+    /* ── Heading ── */
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .dim { color: var(--text-muted); font-weight: 300; }
+    h1 .accent { color: var(--accent); }
+
+    /* ── Divider ── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 1.5rem;
+      border-radius: 2px;
+    }
+
+    /* ── Beskrivelse ── */
+    .desc {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--text);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 2.8rem;
+      font-weight: 400;
+    }
+
+    /* ── Knapp ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.95rem 2.2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+      margin-bottom: 1.4rem;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(79,142,247,0.28);
+    }
+
+    .btn:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(79,142,247,0.38);
+    }
+
+    .btn svg { flex-shrink: 0; }
+
+    /* ── E-post-tekst ── */
+    .email-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .email-text a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .email-text a:hover { color: var(--accent-light); }
+
+    /* ── Footer-linje ── */
+    .footer-line {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+      white-space: nowrap;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Fade-in-up animasjon ── */
+    .fi {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
     .fi.in { opacity: 1; transform: none; }
     .fi-d1 { transition-delay: 0.1s; }
     .fi-d2 { transition-delay: 0.2s; }
     .fi-d3 { transition-delay: 0.3s; }
     .fi-d4 { transition-delay: 0.4s; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2.1rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; }
-    .btn-accent { background: var(--accent); color: var(--bg); }
-    .btn-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,142,247,0.3); }
-    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent-dim); }
-    .btn-outline:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); transform: translateY(-2px); }
-    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .fi-d5 { transition-delay: 0.5s; }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.6rem 0; transition: background 0.4s, padding 0.4s, border-color 0.4s; border-bottom: 1px solid transparent; }
-    nav.scrolled { background: rgba(10,10,15,0.94); backdrop-filter: blur(14px); padding: 1rem 0; border-color: var(--border); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: none; list-style: none; gap: 2.5rem; }
-    @media (min-width: 900px) { .nav-links { display: flex; } }
-    .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.2s; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    .nav-cta { display: none; }
-    @media (min-width: 900px) { .nav-cta { display: inline-flex; } }
-    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    @media (min-width: 900px) { .hamburger { display: none; } }
-    .hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all 0.3s; transform-origin: center; }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .mobile-menu { position: fixed; inset: 0; background: var(--bg); z-index: 998; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
-    .mobile-menu.open { opacity: 1; pointer-events: all; }
-    .mobile-menu a { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.2s; }
-    .mobile-menu a:hover { color: var(--accent); }
+    /* Unngå blink på logo-wrap som ikke bruker .fi */
+    .logo-wrap { opacity: 0; animation: logo-appear 0.8s ease 0.05s forwards; }
+    @keyframes logo-appear {
+      to { opacity: 1; }
+    }
 
-    /* HERO */
-    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0; }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
-    .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
-    .hero-content { position: relative; z-index: 1; padding: 9rem 0 5rem; }
-    .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
-    .hero-title .accent-blue { color: var(--accent); display: block; }
-    .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
-    .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
-    .stat-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.3rem; }
-
-    /* OM OSS */
-    #about { background: var(--dark); }
-    .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
-    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
-    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: saturate(0.75); transition: filter 0.4s; }
-    .about-img:hover { filter: saturate(1); }
-    .about-text p { margin-bottom: 1.25rem; color: var(--text); }
-
-    /* HVORFOR */
-    #why { background: var(--bg); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .why-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
-    .why-card:hover { border-color: var(--accent-dim); transform: translateY(-4px); }
-    .why-icon { width: 48px; height: 48px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
-    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
-    .why-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
-    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
-
-    /* WHATSAPP FAB */
-    .whatsapp-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
-    .whatsapp-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
-    .whatsapp-fab:focus-visible { outline: 2px solid #25D366; outline-offset: 4px; }
-    .whatsapp-fab svg { width: 30px; height: 30px; }
-
-    /* COOKIE BANNER */
-    #cookie-banner { display: none; position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 950; background: var(--card); border: 1px solid var(--border); padding: 1.25rem 1.5rem; max-width: 420px; flex-direction: column; gap: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
-    #cookie-banner p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
-    #cookie-banner a { color: var(--accent); text-decoration: underline; }
-    #cookie-accept { align-self: flex-start; background: var(--accent); color: var(--bg); border: none; padding: 0.55rem 1.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
-    #cookie-accept:hover { background: var(--accent-light); }
-    #cookie-accept:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-    /* FOOTER */
-    footer { background: var(--dark); border-top: 1px solid var(--border); padding: 4rem 0 2rem; }
-    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
-    @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; } }
-    .footer-brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); text-decoration: none; }
-    .footer-brand-name span { color: var(--accent); }
-    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem; }
-    .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border); gap: 0.5rem; }
-    .footer-col ul li:last-child { border-bottom: none; }
-    .footer-col ul li span { color: var(--text-muted); white-space: nowrap; }
-    .footer-col ul li a { color: var(--text); text-decoration: none; transition: color 0.2s; }
-    .footer-col ul li a:hover { color: var(--accent); }
-    .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--text-muted); }
-    .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .footer-bottom a:hover { color: var(--accent); }
-
-    @media (max-width: 600px) { .hero-stats { gap: 2rem; } }
+    /* ── Mobil ── */
+    @media (max-width: 480px) {
+      .logo-wrap img { height: 110px; }
+      .logo-ring { inset: -14px; }
+      .logo-ring-outer { inset: -24px; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav role="navigation" aria-label="Hovednavigasjon" id="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Thorset<span>Web</span></a>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html" class="active">Hjem</a></li>
-        <li><a href="tjenester.html">Tjenester</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-      <a href="kontakt.html" class="btn btn-accent nav-cta">Få tilbud</a>
-      <button class="hamburger" id="hbg" aria-label="Åpne meny" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <!-- Bakgrunnseffekter -->
+  <div class="bg-effects" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
-</nav>
 
-<!-- MOBILMENY -->
-<div class="mobile-menu" id="mob" role="dialog" aria-label="Navigasjonsmeny" aria-modal="true">
-  <a href="index.html">Hjem</a>
-  <a href="tjenester.html">Tjenester</a>
-  <a href="kontakt.html">Kontakt</a>
-</div>
-
-<!-- HERO -->
-<section id="hero" aria-label="Velkomstseksjon">
-  <div class="hero-bg"></div>
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title fi">
-        Design og utvikling
-        <span class="accent-blue">for din bedrift.</span>
-      </h1>
-      <p class="hero-sub fi fi-d1">
-        Vi hjelper bedrifter med å etablere seg på nett med moderne nettsider
-        som presenterer virksomheten din på en god måte.
-      </p>
-      <div class="hero-btns fi fi-d2">
-        <a href="kontakt.html" class="btn btn-accent">Få tilbud</a>
-        <a href="tjenester.html" class="btn btn-outline">Se tjenester</a>
-      </div>
-      <div class="hero-stats fi fi-d3" aria-label="Nøkkeltall">
-        <div>
-          <div class="stat-num" style="font-size:1.2rem;">Avtales ved kontakt</div>
-          <div class="stat-label">Pris</div>
-        </div>
-        <div>
-          <div class="stat-num">1 dag</div>
-          <div class="stat-label">Leveringstid</div>
-        </div>
-        <div>
-          <div class="stat-num">Fast pris</div>
-          <div class="stat-label">Ingen overraskelser</div>
-        </div>
-      </div>
+  <main>
+    <!-- Logo med pulserende ring -->
+    <div class="logo-wrap">
+      <div class="logo-ring-outer"></div>
+      <div class="logo-ring"></div>
+      <img src="Logo3.png" alt="ThorsetWeb" width="150">
     </div>
-  </div>
-</section>
 
-<!-- OM OSS -->
-<section id="about" aria-label="Om ThorsetWeb">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text fi">
-        <span class="label">Om oss</span>
-        <h2 class="section-title">Om ThorsetWeb</h2>
-        <div class="orn"><div class="orn-d"></div></div>
-        <p>
-          ThorsetWeb er drevet av Fredrik Thorset, student i datateknologi ved NTNU.
-          Vi tilbyr webutvikling til bedrifter som trenger en god nettside.
-          Ta kontakt for å få et tilbud tilpasset ditt behov.
-        </p>
-        <p>
-          Nettsidene er bygget fra bunnen av – ikke i Wix eller WordPress.
-          Det gir raskere sider, bedre kontroll, og ingen unødvendige
-          månedlige kostnader.
-        </p>
-        <p>
-          Trenger du noen til å håndtere vedlikehold og hosting etterpå,
-          tilbyr vi det for 500 kr i måneden uten bindingstid.
-        </p>
-      </div>
-      <div class="fi fi-d2">
-        <img
-          src="https://picsum.photos/seed/thorsetweb-about/600/480"
-          alt="Fredrik – webutvikler i Trondheim, ThorsetWeb"
-          class="about-img"
-          loading="lazy"
-          width="600"
-          height="480"
-        >
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Label -->
+    <span class="label fi">Kommer snart</span>
 
-<!-- HVA VI TILBYR -->
-<section id="why" aria-label="Hva vi tilbyr">
-  <div class="container">
-    <span class="label fi">Hva vi tilbyr</span>
-    <h2 class="section-title fi fi-d1">Webutvikling<br>som fungerer</h2>
-    <div class="why-grid">
+    <!-- Heading -->
+    <h1 class="fi fi-d1">
+      Thorset<span class="accent">Web</span>
+    </h1>
 
-      <div class="why-card fi fi-d1">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
-        </div>
-        <h3>Pris etter avtale</h3>
-        <p>Ingen skjulte kostnader eller overraskelser. Ta kontakt for å få et tilbud.</p>
-      </div>
+    <!-- Divider -->
+    <div class="divider fi fi-d2"></div>
 
-      <div class="why-card fi fi-d2">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <h3>Levert neste dag</h3>
-        <p>Sender du oss innholdet, har du nettsiden klar dagen etter.</p>
-      </div>
+    <!-- Beskrivelse -->
+    <p class="desc fi fi-d2">
+      Vi jobber med noe spennende. Nettsiden lanseres snart&nbsp;–
+      ta gjerne kontakt hvis du har spørsmål i mellomtiden.
+    </p>
 
-      <div class="why-card fi fi-d3">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
-            <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-          </svg>
-        </div>
-        <h3>Tilpasset din bedrift</h3>
-        <p>Design og innhold tilpasses din bransje og dine kunder. Grunnleggende SEO er alltid inkludert.</p>
-      </div>
+    <!-- Kontakt-knapp -->
+    <a href="mailto:fredrik.thorset@gmail.com" class="btn fi fi-d3" aria-label="Send e-post til ThorsetWeb">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+      Send oss en e-post
+    </a>
 
-      <div class="why-card fi fi-d4">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
-          </svg>
-        </div>
-        <h3>Bygget fra bunnen av</h3>
-        <p>Vi bruker ikke sidebyggere. Nettsiden er kodet for hånd – raskere, enklere og uten unødvendige lisenser.</p>
-      </div>
+    <!-- E-post-adresse synlig -->
+    <p class="email-text fi fi-d4">
+      <a href="mailto:fredrik.thorset@gmail.com">fredrik.thorset@gmail.com</a>
+    </p>
 
-    </div>
-  </div>
-</section>
+    <!-- Footer-signatur -->
+    <p class="footer-line">© 2025 ThorsetWeb</p>
+  </main>
 
-<!-- WHATSAPP FAB -->
-<a href="https://wa.me/4790414225" target="_blank" rel="noopener noreferrer" aria-label="Chat med ThorsetWeb på WhatsApp" class="whatsapp-fab">
-  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.506 3.93 1.395 5.6L0 24l6.545-1.367A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.367l-.36-.213-3.726.978.994-3.639-.235-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.574 6.574 2.182 12 2.182S21.818 6.574 21.818 12 17.426 21.818 12 21.818z"/>
-  </svg>
-</a>
+  <script>
+    // Fade-in-up ved innlasting
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner" role="dialog" aria-label="Informasjonskapsler" aria-modal="false">
-  <p>Vi bruker informasjonskapsler for å forbedre din opplevelse. <a href="#">Les vår personvernpolicy</a></p>
-  <button id="cookie-accept">Godta</button>
-</div>
+    document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+  </script>
 
-<!-- FOOTER -->
-<footer role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <a href="index.html" class="footer-brand-name">Thorset<span>Web</span></a>
-        <p class="footer-tagline">Design og utvikling for norske bedrifter.</p>
-        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.7;max-width:320px;">
-          Trondheim-basert webutvikler. Fast pris, rask levering.
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4>Sider</h4>
-        <ul role="list">
-          <li><a href="index.html">Hjem</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul role="list">
-          <li>Telefon <a href="tel:+4790414225">90 41 42 25</a></li>
-          <li>Lokasjon <span>Trondheim</span></li>
-          <li>Tilgjengelighet <span>Etter avtale</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ThorsetWeb · Org.nr: 000 000 000 · Trondheim · <a href="tel:+4790414225">90 41 42 25</a></span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-  const hbg = document.getElementById('hbg');
-  const mob = document.getElementById('mob');
-  hbg.addEventListener('click', () => {
-    const isOpen = mob.classList.toggle('open');
-    hbg.classList.toggle('open', isOpen);
-    hbg.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-  mob.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      mob.classList.remove('open');
-      hbg.classList.remove('open');
-      hbg.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.fi').forEach(el => io.observe(el));
-  if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'flex'; }
-  document.getElementById('cookie-accept').addEventListener('click', () => {
-    localStorage.setItem('cookie_consent', 'true');
-    document.getElementById('cookie-banner').style.display = 'none';
-  });
-</script>
 </body>
 </html>
