@@ -303,7 +303,7 @@
 
       <div class="fi fi-d2">
         <div class="form-card">
-          <form id="contact-form" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/xvzvknpr" method="POST" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Navn</label>
@@ -454,8 +454,20 @@
     if (!emailRe.test(email.value.trim())) { showError('email-err', email); valid = false; } else { clearError('email-err', email); }
     if (!service.value) { showError('service-err', service); valid = false; } else { clearError('service-err', service); }
     if (valid) {
-      form.style.display = 'none';
-      document.getElementById('form-success').classList.add('show');
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').classList.add('show');
+        } else {
+          alert('Noe gikk galt. Prøv igjen eller ring oss direkte.');
+        }
+      }).catch(() => {
+        alert('Noe gikk galt. Prøv igjen eller ring oss direkte.');
+      });
     }
   });
 </script>
