@@ -6,14 +6,14 @@
 
   <!-- SEO -->
   <title>Tjenester – ThorsetWeb</title>
-  <meta name="description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 500 kr/mnd. Ta kontakt for pris. Se hva som er inkludert og vanlige spørsmål.">
+  <meta name="description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 499 kr/mnd. Ta kontakt for pris. Se hva som er inkludert og vanlige spørsmål.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="tjenester.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tjenester – ThorsetWeb">
-  <meta property="og:description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 500 kr/mnd. Ta kontakt for pris.">
+  <meta property="og:description" content="Komplett nettside levert på 1 dag. Vedlikehold og hosting 499 kr/mnd. Ta kontakt for pris.">
   <meta property="og:locale" content="nb_NO">
   <meta property="og:site_name" content="ThorsetWeb">
 
@@ -98,12 +98,12 @@
     .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.6rem 0; transition: background 0.4s, padding 0.4s, border-color 0.4s; border-bottom: 1px solid transparent; }
-    nav.scrolled { background: rgba(10,10,15,0.94); backdrop-filter: blur(14px); padding: 1rem 0; border-color: var(--border); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 0; background: rgba(10,10,15,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.4s, padding 0.4s, border-color 0.4s; }
+    nav.scrolled { background: rgba(10,10,15,0.96); padding: 0.75rem 0; border-color: var(--border); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 180px; width: auto; display: block; margin-top: -0.6rem; transition: height 0.4s; }
-    nav.scrolled .nav-logo img { height: 50px; margin-top: 0; }
+    .nav-logo img { height: 130px; width: auto; display: block; transition: height 0.4s; }
+    nav.scrolled .nav-logo img { height: 95px; }
     .nav-links { display: none; list-style: none; gap: 2.5rem; }
     @media (min-width: 900px) { .nav-links { display: flex; } }
     .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.2s; position: relative; }
@@ -126,7 +126,7 @@
     .mobile-menu a:hover { color: var(--accent); }
 
     /* PAGE HERO */
-    .page-hero { padding: 10rem 0 5rem; background: var(--dark); border-bottom: 1px solid var(--border); }
+    .page-hero { padding: 11rem 0 4rem; background: var(--dark); border-bottom: 1px solid var(--border); }
     .page-hero .label { margin-bottom: 0.75rem; }
     .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; }
     .page-hero p { font-size: 1.05rem; color: var(--text); max-width: 500px; margin-top: 1rem; }
@@ -134,9 +134,22 @@
     /* PAKKE */
     #pakke { background: var(--bg); }
     .pakke-wrap { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 3rem auto 0; }
-    @media (min-width: 768px) { .pakke-wrap { grid-template-columns: 1fr 1fr; } }
-    .pakke-card { background: var(--surface); border: 1px solid var(--accent-dim); padding: 2.5rem; position: relative; }
+    @media (min-width: 768px) {
+      .pakke-wrap { grid-template-columns: 1fr 1fr; column-gap: 2rem; row-gap: 0; grid-template-rows: auto auto auto auto auto auto auto; }
+      .pakke-card { display: grid; grid-template-rows: subgrid; grid-row: span 7; }
+      .pakke-badges { padding-bottom: 0.5rem; }
+      .pakke-oldprice { padding-bottom: 0.25rem; }
+      .pakke-price { padding-bottom: 0.5rem; }
+      .pakke-name { padding-bottom: 0.5rem; }
+      .pakke-desc { padding-bottom: 1.25rem; }
+      .pakke-list { padding-bottom: 1.75rem; }
+    }
+    .pakke-card { background: var(--surface); border: 1px solid var(--accent-dim); padding: 2.5rem; position: relative; display: flex; flex-direction: column; }
+    .pakke-card .pakke-list { flex: 1; }
+    .pakke-card .btn { align-self: flex-start; }
     .pakke-card.featured { border-color: var(--accent); background: var(--card); }
+    .pakke-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .pakke-oldprice { font-size: 0.85rem; color: var(--text-muted); text-decoration: line-through; min-height: 1.2em; margin-bottom: 0.25rem; }
     .badge { display: inline-block; background: var(--accent); color: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; margin-bottom: 1.5rem; }
     .pakke-price { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1; }
     .pakke-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); margin-left: 0.25rem; }
@@ -146,6 +159,12 @@
     .pakke-list li { font-size: 0.88rem; color: var(--text); padding: 0.55rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; }
     .pakke-list li:last-child { border-bottom: none; }
     .pakke-list li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex-shrink: 0; margin-top: 0.5rem; }
+    .pakke-list li.felles { color: var(--accent); }
+    .pakke-list li.felles::before { background: var(--accent); }
+    .pakke-list li.ekstra { color: var(--white); font-weight: 500; }
+    .pakke-list li.ekstra::before { background: var(--white); }
+    .pakke-list li.sep { border: none; border-top: 1px solid var(--border); padding: 0; margin: 0.25rem 0; pointer-events: none; }
+    .pakke-list li.sep::before { display: none; }
     .addon-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem 2.5rem; max-width: 900px; margin: 1.5rem auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
     .addon-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
     .addon-info p { font-size: 0.85rem; color: var(--text-muted); max-width: 480px; }
@@ -234,48 +253,51 @@
 </div>
 
 <!-- PAKKE -->
-<section id="pakke" aria-label="Vår pakke">
+<section id="pakke" aria-label="Våre pakker">
   <div class="container">
     <span class="label fi">Pris</span>
-    <h2 class="section-title fi fi-d1">Nettside – én pakke</h2>
+    <h2 class="section-title fi fi-d1">Velg din pakke</h2>
 
     <div class="pakke-wrap">
-      <div class="pakke-card featured fi fi-d1">
-        <span class="badge">Inkludert</span>
-        <div class="pakke-price" style="font-size:1.4rem; color:var(--accent-light);">Avtales ved kontakt</div>
-        <div class="pakke-name">Komplett nettside</div>
-        <p class="pakke-desc">Levert innen 1 virkedag etter godkjent innhold.</p>
+
+      <div class="pakke-card fi fi-d1">
+        <div class="pakke-badges">
+          <span class="badge" style="background: var(--surface); color: var(--accent); border: 1px solid var(--accent-dim);">Selvhosting</span>
+        </div>
+        <div class="pakke-oldprice"></div>
+        <div class="pakke-price">5 000 <span>kr</span></div>
+        <div class="pakke-name">Nettside – du hoster selv</div>
+        <p class="pakke-desc">Vi lager nettsiden og leverer den til deg. Du ordner hosting selv.</p>
         <ul class="pakke-list" role="list">
-          <li>Mobilresponsivt design</li>
-          <li>Grunnleggende SEO</li>
-          <li>Kontaktskjema</li>
-          <li>Smooth animasjoner</li>
-          <li>Rask lastetid</li>
-          <li>Ingen sidebyggere eller plugins</li>
+          <li class="felles">Profesjonell nettside</li>
+          <li class="felles">Mobilresponsiv</li>
+          <li class="felles">SEO-optimalisering</li>
+        </ul>
+        <a href="kontakt.html" class="btn btn-outline">Bestill nå</a>
+      </div>
+
+      <div class="pakke-card featured fi fi-d2">
+        <div class="pakke-badges">
+          <span class="badge">Anbefalt</span>
+          <span class="badge" style="background:#F76F6F; color:#fff;">Tilbud – 25% rabatt</span>
+        </div>
+        <div class="pakke-oldprice">4 000 kr</div>
+        <div class="pakke-price">3 000 <span>kr + 499 kr/mnd</span></div>
+        <div class="pakke-name">Nettside + hosting &amp; vedlikehold</div>
+        <p class="pakke-desc">Vi lager, hoster og vedlikeholder nettsiden for deg. Ingen bindingstid.</p>
+        <ul class="pakke-list" role="list">
+          <li class="felles">Profesjonell nettside</li>
+          <li class="felles">Mobilresponsiv</li>
+          <li class="felles">SEO-optimalisering</li>
+          <li class="sep"></li>
+          <li class="ekstra">Hosting inkludert</li>
+          <li class="ekstra">Domene inkludert</li>
+          <li class="ekstra">Vedlikehold</li>
+          <li class="ekstra">Endringer og oppdateringer</li>
         </ul>
         <a href="kontakt.html" class="btn btn-accent">Bestill nå</a>
       </div>
 
-      <div class="pakke-card fi fi-d2">
-        <span class="badge" style="background: var(--surface); color: var(--accent); border: 1px solid var(--accent-dim);">Hva du trenger</span>
-        <div class="pakke-name" style="margin-top: 0.5rem;">Du sender oss</div>
-        <p class="pakke-desc">Det eneste vi trenger for å komme i gang.</p>
-        <ul class="pakke-list" role="list">
-          <li>Tekst om bedriften</li>
-          <li>Tjenester og priser</li>
-          <li>Kontaktinformasjon</li>
-          <li>Bilder (eller vi finner passende)</li>
-        </ul>
-        <a href="kontakt.html" class="btn btn-outline">Ta kontakt</a>
-      </div>
-    </div>
-
-    <div class="addon-card fi fi-d3">
-      <div class="addon-info">
-        <h3>Vedlikehold &amp; hosting</h3>
-        <p>Vi holder nettsiden oppe og oppdatert. Inkluderer hosting, teknisk støtte og små endringer. Ingen bindingstid.</p>
-      </div>
-      <div class="addon-price">500 <span>kr/mnd</span></div>
     </div>
   </div>
 </section>
@@ -311,7 +333,7 @@
         </button>
         <div class="faq-a" role="region">
           <div class="faq-a-inner">
-            En ferdig, mobilresponsiv nettside kodet for hånd – inkludert design, grunnleggende SEO, kontaktskjema og animasjoner. Det eneste som ikke er inkludert er hosting og vedlikehold, som er valgfritt til 500 kr/mnd. Pris på selve nettsiden avtales ved kontakt.
+            Begge pakker inkluderer en profesjonell, mobilresponsiv nettside skreddersydd til din bedrift – laget for at kundene dine skal finne deg på Google. Velger du hosting-pakken (4 000 kr + 499 kr/mnd) får du i tillegg domene, hosting, vedlikehold og endringer inkludert. Ingen bindingstid.
           </div>
         </div>
       </div>
@@ -344,19 +366,6 @@
         </div>
       </div>
 
-      <div class="faq-item" role="listitem">
-        <button class="faq-q" aria-expanded="false">
-          Hva skiller dette fra Wix eller WordPress?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-          </svg>
-        </button>
-        <div class="faq-a" role="region">
-          <div class="faq-a-inner">
-            Nettsiden er bygget uten sidebyggere som Wix eller WordPress. Det gir raskere lastetid, enklere vedlikehold og ingen månedlige lisenskostnader du ikke er klar over. Du eier koden og kan flytte den dit du vil.
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>

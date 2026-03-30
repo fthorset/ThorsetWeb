@@ -98,12 +98,12 @@
     .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.6rem 0; transition: background 0.4s, padding 0.4s, border-color 0.4s; border-bottom: 1px solid transparent; }
-    nav.scrolled { background: rgba(10,10,15,0.94); backdrop-filter: blur(14px); padding: 1rem 0; border-color: var(--border); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 0; background: rgba(10,10,15,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.4s, padding 0.4s, border-color 0.4s; }
+    nav.scrolled { background: rgba(10,10,15,0.96); padding: 0.75rem 0; border-color: var(--border); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 180px; width: auto; display: block; margin-top: -0.6rem; transition: height 0.4s; }
-    nav.scrolled .nav-logo img { height: 50px; margin-top: 0; }
+    .nav-logo img { height: 130px; width: auto; display: block; transition: height 0.4s; }
+    nav.scrolled .nav-logo img { height: 95px; }
     .nav-links { display: none; list-style: none; gap: 2.5rem; }
     @media (min-width: 900px) { .nav-links { display: flex; } }
     .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.2s; position: relative; }
@@ -126,7 +126,7 @@
     .mobile-menu a:hover { color: var(--accent); }
 
     /* PAGE HERO */
-    .page-hero { padding: 10rem 0 5rem; background: var(--dark); border-bottom: 1px solid var(--border); }
+    .page-hero { padding: 11rem 0 4rem; background: var(--dark); border-bottom: 1px solid var(--border); }
     .page-hero .label { margin-bottom: 0.75rem; }
     .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; }
     .page-hero p { font-size: 1.05rem; color: var(--text); max-width: 500px; margin-top: 1rem; }
@@ -236,7 +236,6 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="container">
-    <span class="label fi">Kontakt</span>
     <h1 class="fi fi-d1">Ta kontakt</h1>
     <p class="fi fi-d2">Send en melding, ring, eller bruk skjemaet – vi svarer raskt.</p>
   </div>
@@ -326,8 +325,8 @@
               <label for="service">Hva ønsker du?</label>
               <select id="service" name="service">
                 <option value="">Velg alternativ</option>
-                <option value="nettside">Nettside – pris etter avtale</option>
-                <option value="vedlikehold">Vedlikehold &amp; hosting – 500 kr/mnd</option>
+                <option value="selvhosting">Nettside – selvhosting (5 000 kr)</option>
+                <option value="hosting">Nettside + hosting &amp; vedlikehold (4 000 kr + 499 kr/mnd)</option>
                 <option value="annet">Annet / ikke sikker enda</option>
               </select>
               <span class="field-error" id="service-err">Velg et alternativ</span>

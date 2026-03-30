@@ -3,14 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kommer snart – ThorsetWeb</title>
-  <meta name="description" content="ThorsetWeb lanseres snart. Vi bygger nettsider som gir resultater for norske bedrifter.">
+
+  <!-- SEO -->
+  <title>ThorsetWeb – Design og utvikling for norske bedrifter</title>
+  <meta name="description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale. Trondheim-basert, betjener hele Norge.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="index.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ThorsetWeb – Design og utvikling for norske bedrifter">
+  <meta property="og:description" content="ThorsetWeb hjelper bedrifter med å etablere seg på nett. Levering 1 dag. Pris etter avtale.">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:site_name" content="ThorsetWeb">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ThorsetWeb",
+    "description": "ThorsetWeb hjelper bedrifter med å etablere seg på nett. Nettside fra 4 000 kr, levering 1 dag.",
+    "url": "index.html",
+    "telephone": "+4790414225",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trondheim",
+      "postalCode": "7030",
+      "addressCountry": "NO"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "kr",
+    "sameAs": []
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg:           #0A0A0F;
       --dark:         #0E0E16;
@@ -24,296 +65,425 @@
       --text:         #C8C8D8;
       --text-muted:   #7878A8;
     }
-
-    html, body {
-      height: 100%;
+    html { scroll-behavior: smooth; }
+    body {
       background: var(--bg);
-      color: var(--white);
+      color: var(--text);
       font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-
-    /* ── Bakgrunn ── */
-    .bg-effects {
+    body::after {
+      content: '';
       position: fixed;
       inset: 0;
-      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.018;
       pointer-events: none;
+      z-index: 9999;
     }
-
-    .bg-gradient {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79,142,247,0.13) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(79,142,247,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 20% 90%, rgba(126,179,255,0.05) 0%, transparent 55%);
-    }
-
-    .bg-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 80%);
-    }
-
-    /* Floating orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      animation: orb-drift 12s ease-in-out infinite;
-    }
-    .orb-1 {
-      width: 320px; height: 320px;
-      background: rgba(79,142,247,0.07);
-      top: 15%; left: 10%;
-      animation-duration: 14s;
-    }
-    .orb-2 {
-      width: 240px; height: 240px;
-      background: rgba(126,179,255,0.05);
-      top: 55%; right: 12%;
-      animation-duration: 18s;
-      animation-delay: -6s;
-    }
-    .orb-3 {
-      width: 180px; height: 180px;
-      background: rgba(79,142,247,0.06);
-      bottom: 20%; left: 30%;
-      animation-duration: 10s;
-      animation-delay: -3s;
-    }
-
-    @keyframes orb-drift {
-      0%, 100% { transform: translate(0, 0); }
-      33%       { transform: translate(30px, -20px); }
-      66%       { transform: translate(-20px, 25px); }
-    }
-
-    /* ── Hoved-layout ── */
-    main {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
-      text-align: center;
-    }
-
-    /* ── Logo ── */
-    .logo-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    .logo-wrap img {
-      height: 260px;
-      width: auto;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 0 24px rgba(79,142,247,0.15));
-    }
-
-    /* ── Label ── */
-    .label {
-      display: inline-block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-      padding: 0.35rem 1rem;
-      border: 1px solid rgba(79,142,247,0.25);
-      border-radius: 100px;
-      background: rgba(79,142,247,0.07);
-    }
-
-    /* ── Heading ── */
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3rem, 9vw, 6.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 .dim { color: var(--text-muted); font-weight: 300; }
-    h1 .accent { color: var(--accent); }
-
-    /* ── Divider ── */
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      margin: 0 auto 1.5rem;
-      border-radius: 2px;
-    }
-
-    /* ── Beskrivelse ── */
-    .desc {
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
-      color: var(--text);
-      line-height: 1.75;
-      max-width: 480px;
-      margin-bottom: 1.8rem;
-      font-weight: 400;
-    }
-
-    /* ── Knapp ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.95rem 2.2rem;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
-      margin-bottom: 1.4rem;
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 4px 24px rgba(79,142,247,0.28);
-    }
-
-    .btn:hover {
-      background: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(79,142,247,0.38);
-    }
-
-    .btn svg { flex-shrink: 0; }
-
-    /* ── E-post-tekst ── */
-    .email-text {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      letter-spacing: 0.03em;
-    }
-
-    .email-text a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .email-text a:hover { color: var(--accent-light); }
-
-    /* ── Footer-linje ── */
-    .footer-line {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      opacity: 0.5;
-      white-space: nowrap;
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.06em;
-    }
-
-    /* ── Fade-in-up animasjon ── */
-    .fi {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--white); line-height: 1.15; }
+    .label { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1.5rem; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 6rem 0; }
+    .orn { display: flex; align-items: center; gap: 1rem; margin: 1.75rem 0; }
+    .orn::before, .orn::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .orn-d { width: 7px; height: 7px; background: var(--accent-dim); transform: rotate(45deg); flex-shrink: 0; }
+    .fi { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .fi.in { opacity: 1; transform: none; }
     .fi-d1 { transition-delay: 0.1s; }
     .fi-d2 { transition-delay: 0.2s; }
     .fi-d3 { transition-delay: 0.3s; }
     .fi-d4 { transition-delay: 0.4s; }
-    .fi-d5 { transition-delay: 0.5s; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2.1rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; }
+    .btn-accent { background: var(--accent); color: var(--bg); }
+    .btn-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,142,247,0.3); }
+    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent-dim); }
+    .btn-outline:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); transform: translateY(-2px); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-    /* Unngå blink på logo-wrap som ikke bruker .fi */
-    .logo-wrap { opacity: 0; animation: logo-appear 0.8s ease 0.05s forwards; }
-    @keyframes logo-appear {
-      to { opacity: 1; }
-    }
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 0; background: rgba(10,10,15,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.4s, padding 0.4s, border-color 0.4s; }
+    nav.scrolled { background: rgba(10,10,15,0.96); padding: 0.75rem 0; border-color: var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 160px; width: auto; display: block; transition: height 0.4s; }
+    nav.scrolled .nav-logo img { height: 120px; }
+    .nav-links { display: none; list-style: none; gap: 2.5rem; }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+    .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .nav-cta { display: none; }
+    @media (min-width: 900px) { .nav-cta { display: inline-flex; } }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    @media (min-width: 900px) { .hamburger { display: none; } }
+    .hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all 0.3s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 0; background: var(--bg); z-index: 998; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--accent); }
 
-    /* ── Mobil ── */
-    @media (max-width: 480px) {
-      .logo-wrap img { height: 110px; }
-      .logo-ring { inset: -14px; }
-      .logo-ring-outer { inset: -24px; }
-    }
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
+    .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 14rem 0 5rem; }
+    .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
+    .hero-title .accent-blue { color: var(--accent); display: block; }
+    .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.3rem; text-align: center; }
+
+    /* OM OSS */
+    #about { background: var(--dark); }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: saturate(0.75); transition: filter 0.4s; }
+    .about-img:hover { filter: saturate(1); }
+    .about-text p { margin-bottom: 1.25rem; color: var(--text); }
+    /* HVORFOR */
+    #why { background: var(--bg); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .why-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
+    .why-card:hover { border-color: var(--accent-dim); transform: translateY(-4px); }
+    .why-icon { width: 48px; height: 48px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
+    .why-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* WHATSAPP FAB */
+    .whatsapp-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
+    .whatsapp-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    .whatsapp-fab:focus-visible { outline: 2px solid #25D366; outline-offset: 4px; }
+    .whatsapp-fab svg { width: 30px; height: 30px; }
+
+    /* COOKIE BANNER */
+    #cookie-banner { display: none; position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 950; background: var(--card); border: 1px solid var(--border); padding: 1.25rem 1.5rem; max-width: 420px; flex-direction: column; gap: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    #cookie-banner p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+    #cookie-banner a { color: var(--accent); text-decoration: underline; }
+    #cookie-accept { align-self: flex-start; background: var(--accent); color: var(--bg); border: none; padding: 0.55rem 1.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    #cookie-accept:hover { background: var(--accent-light); }
+    #cookie-accept:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* FOOTER */
+    footer { background: var(--dark); border-top: 1px solid var(--border); padding: 4rem 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; } }
+    .footer-brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .footer-brand-name span { color: var(--accent); }
+    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border); gap: 0.5rem; }
+    .footer-col ul li:last-child { border-bottom: none; }
+    .footer-col ul li span { color: var(--text-muted); white-space: nowrap; }
+    .footer-col ul li a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) { .hero-stats { gap: 2rem; } }
   </style>
 </head>
 <body>
 
-  <!-- Bakgrunnseffekter -->
-  <div class="bg-effects" aria-hidden="true">
-    <div class="bg-gradient"></div>
-    <div class="bg-grid"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-
-  <main>
-    <!-- Logo -->
-    <div class="logo-wrap">
-      <img src="Logo3.png" alt="ThorsetWeb">
+<!-- NAV -->
+<nav role="navigation" aria-label="Hovednavigasjon" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Logo3.png" alt="ThorsetWeb"></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active">Hjem</a></li>
+        <li><a href="tjenester.html">Tjenester</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <a href="kontakt.html" class="btn btn-accent nav-cta">Få tilbud</a>
+      <button class="hamburger" id="hbg" aria-label="Åpne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+</nav>
 
-    <!-- Label -->
-    <span class="label fi">Kommer snart</span>
+<!-- MOBILMENY -->
+<div class="mobile-menu" id="mob" role="dialog" aria-label="Navigasjonsmeny" aria-modal="true">
+  <a href="index.html">Hjem</a>
+  <a href="tjenester.html">Tjenester</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
 
-    <!-- Divider -->
-    <div class="divider fi fi-d1"></div>
+<!-- HERO -->
+<section id="hero" aria-label="Velkomstseksjon">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title fi">
+        Design og utvikling
+        <span class="accent-blue">for din bedrift.</span>
+      </h1>
+      <p class="hero-sub fi fi-d1">
+        Vi bygger nettsiden din raskt og riktig — slik at kundene dine stoler på deg.
+      </p>
+      <div class="hero-btns fi fi-d2">
+        <a href="kontakt.html" class="btn btn-accent">Få tilbud</a>
+        <a href="tjenester.html" class="btn btn-outline">Se tjenester</a>
+      </div>
+      <div class="hero-stats fi fi-d3" aria-label="Nøkkeltall">
+        <div>
+          <div class="stat-num">Fra 3 000 kr</div>
+          <div class="stat-label">Pris</div>
+        </div>
+        <div>
+          <div class="stat-num">1 dag</div>
+          <div class="stat-label">Leveringstid</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Beskrivelse -->
-    <p class="desc fi fi-d2">
-      Vi jobber med noe spennende. Nettsiden lanseres snart&nbsp;–
-      ta gjerne kontakt hvis du har spørsmål i mellomtiden.
-    </p>
+<!-- OM OSS -->
+<section id="about" aria-label="Om ThorsetWeb">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fi">
+        <h2 class="section-title">Om oss</h2>
+        <div class="orn"><div class="orn-d"></div></div>
+        <p>
+          Jeg heter Fredrik og studerer datateknologi på NTNU. På siden av studiene
+          lager jeg nettsider for bedrifter som vil se profesjonelle ut på nett,
+          uten å betale byråpriser.
+        </p>
+        <p>
+          Du får en nettside bygget spesielt for deg, ikke en ferdigmal alle andre bruker.
+          Den er rask, ser bra ut på mobil, og er laget for at kundene dine skal finne deg på Google.
+        </p>
+        <p>Jeg tilbyr to pakker:</p>
+        <ul style="list-style: none; padding: 0; margin: 0.5rem 0 0; display: flex; flex-direction: column; gap: 0.5rem;">
+          <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--text);"><span style="display: inline-block; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex-shrink: 0;"></span><strong>Engangspris – 5 000 kr</strong>&nbsp;— du hoster selv</li>
+          <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--text);"><span style="display: inline-block; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex-shrink: 0;"></span><strong>4 000 kr + 499 kr/mnd</strong>&nbsp;— hosting, domene og vedlikehold inkludert</li>
+        </ul>
+      </div>
+      <div class="fi fi-d2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" class="about-img" aria-hidden="true" role="img">
+          <!-- Background -->
+          <rect width="600" height="480" fill="#14141F"/>
+          <!-- Subtle glow -->
+          <ellipse cx="280" cy="270" rx="210" ry="150" fill="#4F8EF7" opacity="0.04"/>
+          <!-- LAPTOP -->
+          <!-- Base/keyboard -->
+          <rect x="80" y="342" width="340" height="16" rx="2" fill="#1E1E2E"/>
+          <rect x="60" y="356" width="380" height="10" rx="5" fill="#181825"/>
+          <!-- Screen casing -->
+          <rect x="92" y="140" width="316" height="206" rx="7" fill="#181825" stroke="#1E1E2E" stroke-width="2"/>
+          <!-- Hinge line -->
+          <rect x="92" y="340" width="316" height="4" fill="#181825"/>
+          <!-- Screen bezel -->
+          <rect x="104" y="152" width="292" height="182" rx="4" fill="#0A0A0F"/>
+          <!-- Browser chrome -->
+          <rect x="104" y="152" width="292" height="26" rx="4" fill="#14141F"/>
+          <circle cx="120" cy="165" r="4" fill="#F76F6F" opacity="0.65"/>
+          <circle cx="134" cy="165" r="4" fill="#F7C76F" opacity="0.65"/>
+          <circle cx="148" cy="165" r="4" fill="#6FF7A0" opacity="0.65"/>
+          <!-- URL bar -->
+          <rect x="162" y="158" width="156" height="14" rx="7" fill="#1E1E2E"/>
+          <rect x="170" y="162" width="68" height="6" rx="3" fill="#7878A8" opacity="0.45"/>
+          <!-- Nav bar inside site -->
+          <rect x="104" y="178" width="292" height="18" fill="#0E0E16"/>
+          <rect x="114" y="183" width="44" height="8" rx="2" fill="#4F8EF7" opacity="0.65"/>
+          <rect x="326" y="183" width="28" height="8" rx="2" fill="#7878A8" opacity="0.4"/>
+          <rect x="360" y="183" width="28" height="8" rx="2" fill="#4F8EF7" opacity="0.5"/>
+          <!-- Hero heading -->
+          <rect x="114" y="208" width="148" height="14" rx="2" fill="#F0F0FA" opacity="0.65"/>
+          <rect x="114" y="228" width="172" height="8" rx="2" fill="#C8C8D8" opacity="0.35"/>
+          <rect x="114" y="242" width="124" height="8" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <!-- Buttons -->
+          <rect x="114" y="260" width="72" height="22" rx="2" fill="#4F8EF7" opacity="0.85"/>
+          <rect x="194" y="260" width="62" height="22" rx="2" fill="none" stroke="#4F8EF7" stroke-width="1.5" opacity="0.45"/>
+          <!-- Feature cards row -->
+          <rect x="114" y="298" width="84" height="50" rx="2" fill="#1E1E2E"/>
+          <rect x="206" y="298" width="84" height="50" rx="2" fill="#1E1E2E"/>
+          <rect x="298" y="298" width="84" height="50" rx="2" fill="#1E1E2E"/>
+          <rect x="120" y="304" width="14" height="14" rx="1" fill="#4F8EF7" opacity="0.3"/>
+          <rect x="120" y="324" width="50" height="6" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <rect x="212" y="304" width="14" height="14" rx="1" fill="#4F8EF7" opacity="0.3"/>
+          <rect x="212" y="324" width="50" height="6" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <rect x="304" y="304" width="14" height="14" rx="1" fill="#4F8EF7" opacity="0.3"/>
+          <rect x="304" y="324" width="50" height="6" rx="2" fill="#C8C8D8" opacity="0.25"/>
+          <!-- MOBILE PHONE -->
+          <!-- Body shadow -->
+          <rect x="398" y="228" width="132" height="232" rx="18" fill="#0E0E16" opacity="0.6"/>
+          <!-- Body -->
+          <rect x="394" y="222" width="132" height="232" rx="18" fill="#181825" stroke="#1E1E2E" stroke-width="1.5"/>
+          <!-- Home indicator -->
+          <rect x="434" y="438" width="52" height="4" rx="2" fill="#1E1E2E"/>
+          <!-- Dynamic island -->
+          <rect x="442" y="234" width="32" height="10" rx="5" fill="#0A0A0F"/>
+          <!-- Screen -->
+          <rect x="406" y="250" width="108" height="174" fill="#0A0A0F"/>
+          <!-- Phone nav -->
+          <rect x="406" y="250" width="108" height="18" fill="#0E0E16"/>
+          <rect x="412" y="255" width="26" height="8" rx="2" fill="#4F8EF7" opacity="0.6"/>
+          <rect x="474" y="257" width="6" height="4" rx="1" fill="#7878A8" opacity="0.5"/>
+          <rect x="474" y="263" width="6" height="4" rx="1" fill="#7878A8" opacity="0.5"/>
+          <!-- Phone hero text -->
+          <rect x="412" y="280" width="82" height="10" rx="2" fill="#F0F0FA" opacity="0.55"/>
+          <rect x="412" y="296" width="90" height="6" rx="2" fill="#C8C8D8" opacity="0.28"/>
+          <rect x="412" y="306" width="68" height="6" rx="2" fill="#C8C8D8" opacity="0.2"/>
+          <!-- Phone CTA -->
+          <rect x="412" y="320" width="62" height="18" rx="2" fill="#4F8EF7" opacity="0.8"/>
+          <!-- Phone cards -->
+          <rect x="412" y="348" width="96" height="32" rx="2" fill="#1E1E2E"/>
+          <rect x="418" y="354" width="12" height="12" rx="1" fill="#4F8EF7" opacity="0.28"/>
+          <rect x="418" y="368" width="48" height="5" rx="2" fill="#C8C8D8" opacity="0.22"/>
+          <rect x="412" y="386" width="96" height="28" rx="2" fill="#1E1E2E"/>
+          <rect x="418" y="392" width="52" height="5" rx="2" fill="#C8C8D8" opacity="0.18"/>
+          <rect x="418" y="402" width="36" height="5" rx="2" fill="#C8C8D8" opacity="0.14"/>
+          <!-- Decorative dots -->
+          <circle cx="74" cy="134" r="2.5" fill="#4F8EF7" opacity="0.25"/>
+          <circle cx="536" cy="214" r="3" fill="#4F8EF7" opacity="0.18"/>
+          <circle cx="545" cy="464" r="2" fill="#4F8EF7" opacity="0.15"/>
+          <circle cx="68" cy="408" r="2" fill="#4F8EF7" opacity="0.2"/>
+          <!-- Accent line connecting devices -->
+          <line x1="396" y1="310" x2="408" y2="310" stroke="#4F8EF7" stroke-width="1" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Kontakt-knapp -->
-    <a href="mailto:fredrik.thorset@gmail.com" class="btn fi fi-d3" aria-label="Send e-post til ThorsetWeb">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-      </svg>
-      Send oss en e-post
-    </a>
+<!-- HVA VI TILBYR -->
+<section id="why" aria-label="Hva vi tilbyr">
+  <div class="container">
+    <h2 class="section-title fi fi-d1">Hva vi<br>leverer</h2>
+    <div class="why-grid">
 
-    <!-- Footer-signatur -->
-    <p class="footer-line">© 2025 ThorsetWeb</p>
-  </main>
+      <div class="why-card fi fi-d1">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Ingen overraskelser</h3>
+        <p>Prisen avtales på forhånd. Ingen bindingstid, og du ser nettsiden før du bestemmer deg.</p>
+      </div>
 
-  <script>
-    // Fade-in-up ved innlasting
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
+      <div class="why-card fi fi-d2">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Levert neste dag</h3>
+        <p>Sender du oss innholdet, har du nettsiden klar dagen etter.</p>
+      </div>
 
-    document.querySelectorAll('.fi').forEach(el => observer.observe(el));
-  </script>
+      <div class="why-card fi fi-d3">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
+            <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </svg>
+        </div>
+        <h3>Skreddersydd til din bedrift</h3>
+        <p>Design og innhold tilpasses din bransje og dine kunder – slik at siden din skiller seg ut og kundene finner deg på Google.</p>
+      </div>
 
+
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/4790414225" target="_blank" rel="noopener noreferrer" aria-label="Chat med ThorsetWeb på WhatsApp" class="whatsapp-fab">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.506 3.93 1.395 5.6L0 24l6.545-1.367A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.367l-.36-.213-3.726.978.994-3.639-.235-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.574 6.574 2.182 12 2.182S21.818 6.574 21.818 12 17.426 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Informasjonskapsler" aria-modal="false">
+  <p>Vi bruker informasjonskapsler for å forbedre din opplevelse. <a href="#">Les vår personvernpolicy</a></p>
+  <button id="cookie-accept">Godta</button>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand-name">Thorset<span>Web</span></a>
+        <p class="footer-tagline">Design og utvikling for norske bedrifter.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sider</h4>
+        <ul role="list">
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul role="list">
+          <li>Telefon <a href="tel:+4790414225">90 41 42 25</a></li>
+          <li>Lokasjon <span>Trondheim</span></li>
+          <li>Tilgjengelighet <span>Etter avtale</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ThorsetWeb · Trondheim · <a href="tel:+4790414225">90 41 42 25</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mob');
+  hbg.addEventListener('click', () => {
+    const isOpen = mob.classList.toggle('open');
+    hbg.classList.toggle('open', isOpen);
+    hbg.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mob.classList.remove('open');
+      hbg.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'flex'; }
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  });
+</script>
 </body>
 </html>
