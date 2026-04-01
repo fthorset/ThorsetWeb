@@ -106,8 +106,8 @@
     .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 0; background: rgba(10,10,15,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.4s, padding 0.4s, border-color 0.4s; }
-    nav.scrolled { background: rgba(10,10,15,0.96); padding: 0.75rem 0; border-color: var(--border); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 0; background: var(--bg); border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.4s, padding 0.4s, border-color 0.4s; }
+    nav.scrolled { background: var(--bg); padding: 0.75rem 0; border-color: var(--border); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-logo img { height: 130px; width: auto; display: block; transition: height 0.4s; }
@@ -139,7 +139,7 @@
     .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
     .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
     .hero-content { position: relative; z-index: 1; padding: 14rem 0 5rem; }
-    @media (max-width: 899px) { .hero-content { padding-top: 11rem; } }
+    @media (max-width: 899px) { .hero-content { padding-top: 13rem; } }
     .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
     .hero-title .accent-blue { color: var(--accent); display: block; }
     .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
