@@ -127,7 +127,7 @@
 
     /* PAGE HERO */
     .page-hero { padding: 11rem 0 4rem; background: var(--dark); border-bottom: 1px solid var(--border); }
-    @media (max-width: 899px) { .page-hero { padding-top: 13rem; } }
+    @media (max-width: 899px) { .page-hero { padding-top: 2rem; } }
     .page-hero .label { margin-bottom: 0.75rem; }
     .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; }
     .page-hero p { font-size: 1.05rem; color: var(--text); max-width: 500px; margin-top: 1rem; }
@@ -406,6 +406,15 @@
 
 <script>
   const nav = document.getElementById('nav');
+  function syncNavPadding() {
+    if (window.innerWidth < 900) {
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+    } else {
+      document.body.style.paddingTop = '';
+    }
+  }
+  syncNavPadding();
+  window.addEventListener('resize', syncNavPadding, { passive: true });
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   const hbg = document.getElementById('hbg');
   const mob = document.getElementById('mob');

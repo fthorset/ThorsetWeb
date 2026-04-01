@@ -139,7 +139,7 @@
     .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(79,142,247,0.06) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(79,142,247,0.04) 0%, transparent 60%); }
     .hero-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; opacity: 0.035; pointer-events: none; background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%); }
     .hero-content { position: relative; z-index: 1; padding: 14rem 0 5rem; }
-    @media (max-width: 899px) { .hero-content { padding-top: 13rem; } }
+    @media (max-width: 899px) { .hero-content { padding-top: 1rem; } }
     .hero-title { font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 0.15em; letter-spacing: -0.03em; }
     .hero-title .accent-blue { color: var(--accent); display: block; }
     .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text); max-width: 520px; margin: 1.8rem 0 2.5rem; line-height: 1.8; }
@@ -446,6 +446,15 @@
 
 <script>
   const nav = document.getElementById('nav');
+  function syncNavPadding() {
+    if (window.innerWidth < 900) {
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+    } else {
+      document.body.style.paddingTop = '';
+    }
+  }
+  syncNavPadding();
+  window.addEventListener('resize', syncNavPadding, { passive: true });
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   const hbg = document.getElementById('hbg');
   const mob = document.getElementById('mob');
